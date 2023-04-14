@@ -1,0 +1,28 @@
+.navbar {
+    color: #d38a2e;
+    /* background-color: #d38a2e; */
+    background-color: #1a1a1a;
+    z-index: 10000;
+}
+body {
+    background-color: #242424;
+}
+
+.navbar img {
+    width: 150px;
+    transition: 0.5s;
+}
+
+.navbar-scroll {
+    color: #d38a2e;
+    backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+    background-color: transparent;
+    box-shadow: none;
+
+}
+
+.navbar-scroll img {
+    width: 100px;
+    transition: 0.4s;
+}

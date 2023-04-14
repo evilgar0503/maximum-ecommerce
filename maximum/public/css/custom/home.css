@@ -1,0 +1,65 @@
+.home-img {
+    background-image: url("../../img/fondo4.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.btn-us {
+    background-image: linear-gradient(to top, #c57a1d 50%, #d38a2e 50%);
+    background-size: 100% 200%;
+    -webkit-transition: background-position 0.5s;
+    -moz-transition: background-position 0.5s;
+    transition: background-position 0.5s;
+    color: #1c1c1c;
+}
+.tipografy {
+    overflow-x: hidden;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+.btn-us:hover {
+    background-position: 0 100%;
+}
+
+.btn-us-text {
+    color: white;
+}
+
+.flag-1 {
+    height: 350px;
+    background: linear-gradient(to left, #1c1c1c, #d38a2e);
+}
+
+.flag-2 {
+    height: 350px;
+    background: linear-gradient(to right, #1c1c1c, #888787);
+}
+
+.form {
+    font-family: 'Courier New', Courier, monospace;
+    height: fit-content;
+    /* background-color: #d38a2e; */
+    background-color: #ffffff;
+    left: 1000px;
+    z-index: 10;
+    position: relative;
+    margin-top: -5%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+}
+.perro {
+    position: absolute;
+    left: -460px;
+    top: 15px;
+    z-index: 10;
+}
+
+.form-back {
+    background: linear-gradient(to right, #493010, #e69532);
+    /* background: linear-gradient(to right, #1c1c1c, #fafafa); */
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+}
+
+/* CARROUSEL CARDS */
