@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ProductoBase;
+use App\Models\Comentario;
 use Illuminate\Http\Request;
 
-class ProductoBaseController extends Controller
+class ComentarioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class ProductoBaseController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ProductoBase $productoBase)
+    public function show(Comentario $comentario)
     {
         //
     }
@@ -42,7 +42,7 @@ class ProductoBaseController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(ProductoBase $productoBase)
+    public function edit(Comentario $comentario)
     {
         //
     }
@@ -50,7 +50,7 @@ class ProductoBaseController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, ProductoBase $productoBase)
+    public function update(Request $request, Comentario $comentario)
     {
         //
     }
@@ -58,7 +58,7 @@ class ProductoBaseController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ProductoBase $productoBase)
+    public function destroy(Comentario $comentario)
     {
         //
     }

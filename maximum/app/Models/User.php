@@ -43,6 +43,15 @@ class User extends Authenticatable
     ];
 
     public function productosValorados() {
-        return $this->belongsToMany(ProductoBase::class, 'valoraciones');
+        return $this->belongsToMany(Producto::class, 'valoraciones');
+    }
+
+    public function comentariosNoticias()
+    {
+        return $this->belongsToMany(Noticia::class, 'comentarios')->withPivot('contenido', 'created_at');
+    }
+
+    public function pedidos() {
+        return $this->hasMany(Pedido::class);
     }
 }

@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Noticia extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'titulo',
+        'cuerpo'
+    ];
+
+    public function comentarios()
+    {
+        return $this->belongsToMany(User::class, 'comentarios')->withPivot('cotenido', 'created_at');
+    }
 }

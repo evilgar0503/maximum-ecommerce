@@ -9,7 +9,12 @@ class Pedido extends Model
 {
     use HasFactory;
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function productosPedido() {
-        return $this->belongsToMany(Producto::class, 'productos_pedido');
+        return $this->belongsToMany(Producto::class, 'productos_pedido')->withPivot('cantidad', 'precio_unidad');
     }
 }

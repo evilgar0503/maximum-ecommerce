@@ -20,7 +20,7 @@ class NoticiaController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
