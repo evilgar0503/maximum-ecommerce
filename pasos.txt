@@ -1,3 +1,0 @@
-1-Creacion Proyecto
-2-Migraciones, modelos y relaciones
-3-
