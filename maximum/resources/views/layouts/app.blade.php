@@ -15,6 +15,8 @@
     <link rel="stylesheet" type="text/css" href="/css/custom/home.css">
     <link rel="stylesheet" type="text/css" href="/css/custom/inputs.css">
     <link rel="stylesheet" type="text/css" href="/css/custom/contact.css">
+    <link rel="stylesheet" type="text/css" href="/css/custom/blog.css">
+
 
 
     <!-- Scripts -->

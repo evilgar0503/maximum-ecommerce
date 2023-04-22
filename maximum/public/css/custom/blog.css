@@ -1,0 +1,13 @@
+.notice {
+    height: 400px;
+}
+
+.contain-img {
+    width: 100%;
+    height: 80%;
+}
+.img-notice {
+    width: 80%;
+    height: 100%;
+    object-fit: contain;
+}

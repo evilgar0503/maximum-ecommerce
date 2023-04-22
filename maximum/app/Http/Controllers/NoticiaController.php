@@ -12,15 +12,30 @@ class NoticiaController extends Controller
      */
     public function index()
     {
-        //
+        $noticias =  Noticia::all();
+        return view('blog.blog')->with('noticias', $noticias);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
+    public function create(Request $request) {
+        $request->validate([
+            'titulo' => ['required', 'string', 'max:255'],
+            'cuerpo' => ['required', 'string'],
+            'imagen' => ['required', 'file']
+        ]);
 
+        $noticia = new Noticia;
+        $noticia->titulo = $request->titulo;
+        $noticia->cuerpo = $request->cuerpo;
+
+        $nameImg = time()."-".$request->file('imagen')->getClientOriginalName();
+        $ruta = "img/".$nameImg;
+        $request->file('imagen')->storeAs('public/img', $nameImg);
+        $noticia->ruta_imagen = $ruta;
+        $noticia->save();
+        return redirect()->route('blog')->with('success', 'La noticia ha sido creada correctamente.');
     }
 
     /**

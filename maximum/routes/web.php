@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AvisosController;
+use App\Http\Controllers\NoticiaController;
 use App\Http\Controllers\RedirectionController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -16,20 +17,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
-
-Route::get('/contacto', function () {
-    return view('contact');
-})->name('contacto');
-
 Route::controller(RedirectionController::class)->group(function () {
-    Route::get('/blog', 'blog')->name('blog');
-    Route::middleware('auth', 'admin')->group(function () {
+    Route::get('/', 'index')->name('home');
+    Route::get('/contacto', 'contact')->name('contacto');
+    Route::middleware(['auth', 'admin'])->group(function () {
         Route::get('/blog/create', 'blogCreate')->name('blog.create');
     });
 });
+
+Route::get('/blog', [NoticiaController::class, 'index'])->name('blog');
+
+Route::post('/noticia/create', [NoticiaController::class, 'create'])->name('noticia.create');
+
 
 Route::post('/formulario', [AvisosController::class, 'store'])->name('avisos.store');
 
