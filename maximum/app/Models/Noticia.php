@@ -16,6 +16,6 @@ class Noticia extends Model
 
     public function comentarios()
     {
-        return $this->belongsToMany(User::class, 'comentarios')->withPivot('cotenido', 'created_at');
+        return $this->belongsToMany(User::class, 'comentarios')->withPivot('contenido', 'created_at');
     }
 }

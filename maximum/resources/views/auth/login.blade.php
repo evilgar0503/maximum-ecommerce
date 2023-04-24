@@ -22,7 +22,7 @@
             <div class="mt-4">
                 <x-input-label for="password" :value="__('Correo electrónico')" />
 
-                <input type="text" id="password" name="password" class="rounded w-full mt-1" placeholder="Contraseña" required>
+                <input type="password" id="password" name="password" class="rounded w-full mt-1" placeholder="Contraseña" required>
             </div>
 
             <!-- Remember Me -->

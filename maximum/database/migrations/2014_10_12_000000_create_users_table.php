@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('direccion')->nullable();
             $table->integer('cp')->nullable();
             $table->set('rol', ['cliente', 'admin', 'empresa'])->default('cliente');
+            $table->string('ruta_imagen');
             $table->rememberToken();
             $table->timestamps();
         });

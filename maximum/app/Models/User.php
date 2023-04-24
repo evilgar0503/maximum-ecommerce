@@ -21,6 +21,7 @@ class User extends Authenticatable
         'nombre',
         'email',
         'password',
+        'ruta_imagen'
     ];
 
     /**
@@ -46,9 +47,9 @@ class User extends Authenticatable
         return $this->belongsToMany(Producto::class, 'valoraciones');
     }
 
-    public function comentariosNoticias()
+    public function comentarios()
     {
-        return $this->belongsToMany(Noticia::class, 'comentarios')->withPivot('contenido', 'created_at');
+        return $this->belongsToMany(Noticia::class, 'comentarios');
     }
 
     public function pedidos() {

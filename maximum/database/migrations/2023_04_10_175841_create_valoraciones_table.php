@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('valoraciones', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_usuario');
-            $table->unsignedBigInteger('id_producto');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('producto_id');
             $table->integer('puntuacion');
             $table->longText('valoracion');
 
-            $table->foreign('id_usuario')->references('id')->on('users');
-            $table->foreign('id_producto')->references('id')->on('productos');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('producto_id')->references('id')->on('productos');
             $table->timestamps();
         });
     }

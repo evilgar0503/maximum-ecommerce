@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AvisosController;
+use App\Http\Controllers\ComentarioController;
 use App\Http\Controllers\NoticiaController;
 use App\Http\Controllers\RedirectionController;
 use App\Http\Controllers\ProfileController;
@@ -28,6 +29,9 @@ Route::controller(RedirectionController::class)->group(function () {
 Route::get('/blog', [NoticiaController::class, 'index'])->name('blog');
 
 Route::post('/noticia/create', [NoticiaController::class, 'create'])->name('noticia.create');
+Route::post('/noticia', [ComentarioController::class, 'store'])->name('comentario.create');
+
+Route::get('/noticia/{id}', [NoticiaController::class, 'show'])->name('noticia.show');
 
 
 Route::post('/formulario', [AvisosController::class, 'store'])->name('avisos.store');

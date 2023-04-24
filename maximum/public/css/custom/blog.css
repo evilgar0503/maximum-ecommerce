@@ -1,13 +1,123 @@
-.notice {
-    height: 400px;
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i");
+
+.card__time {
+    font-size: 12px;
+    color: #83644a;
+    vertical-align: middle;
+    margin-left: 5px;
+    float: right;
+    background-color: #fcfaf9e3;
+    padding: 7px;
+    border-radius: 6px;
 }
 
-.contain-img {
+.card__img {
     width: 100%;
-    height: 80%;
+    height: 235px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    object-fit: cover;
 }
-.img-notice {
-    width: 80%;
+
+.card__info-hover {
+    position: absolute;
+    padding: 16px;
+    width: 100%;
+    opacity: 1;
+    top: 0;
+}
+
+.card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
+    background-color: #fff;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
+}
+.card:hover {
+    box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05, 1.05);
+}
+
+.card__info {
+    z-index: 2;
+    background-color: #fff;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    padding: 16px 24px 24px 24px;
+    height: 120px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.card__category {
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    color: #868686;
+}
+
+.card__title {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 100%;
     height: 100%;
-    object-fit: contain;
+    font-family: "Roboto Slab", serif;
+    text-overflow: ellipsis;
+}
+
+.blog {
+    font-family: "Roboto Slab", serif;
+}
+
+.card__by {
+    font-size: 12px;
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+}
+
+.card__author {
+    font-weight: 600;
+    text-decoration: none;
+    color: #ad7d52;
+}
+
+.card:hover .card__img--hover {
+    height: 100%;
+    opacity: 0.3;
+}
+
+.card:hover .card__info {
+    background-color: transparent;
+    position: relative;
+}
+
+/* Noticia Design*/
+
+.noticia {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.noticia img {
+    max-width: 100%;
+    margin: 20px 0;
+
+}
+
+/* Comment Design */
+.comment-text {
+    width: 100%;
+}
+
+.comment-dog {
+    position: absolute;
+    margin-top: -136px;
+    width: 240px;
+    left: 900px;
+    z-index: 10;
 }

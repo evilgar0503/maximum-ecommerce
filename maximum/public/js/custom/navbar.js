@@ -6,6 +6,3 @@ window.addEventListener('scroll', function() {
       navbar.classList.remove('navbar-scroll');
     }
 });
-window.addEventListener('DOMContentLoaded', function() {
-    console.log('Hola')
-})

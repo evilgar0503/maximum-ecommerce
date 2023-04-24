@@ -12,7 +12,10 @@
     -moz-transition: background-position 0.5s;
     transition: background-position 0.5s;
     color: #1c1c1c;
+    padding: 5px 10px;
+    border-radius: 5px;
 }
+
 .tipografy {
     overflow-x: hidden;
     font-family: 'Courier New', Courier, monospace;

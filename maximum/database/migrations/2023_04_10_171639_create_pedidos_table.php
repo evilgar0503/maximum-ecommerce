@@ -15,17 +15,17 @@ return new class extends Migration
             $table->id();
             $table->timestamp('fecha');
             $table->string('cod_seguimiento');
-            $table->unsignedBigInteger('id_usuario');
+            $table->unsignedBigInteger('user_id');
             $table->longText('nota_cliente');
             $table->longText('nota_empresa');
-            $table->unsignedBigInteger('id_metodo_pago');
+            $table->unsignedBigInteger('metodo_pago_id');
             $table->float('precio_total');
             $table->string('env_nombre');
             $table->string('env_apellidos');
             $table->string('env_dni', 9);
             $table->string('env_ciudad');
             $table->integer('env_cp');
-            $table->unsignedBigInteger('id_metodo_envio');
+            $table->unsignedBigInteger('metodo_envio_id');
             $table->set('estado', ['pendiente', 'procesado', 'enviado']);
             $table->string('fac_nombre');
             $table->string('fac_apellidos');
@@ -33,9 +33,9 @@ return new class extends Migration
             $table->string('fac_ciudad');
             $table->integer('fac_cp');
 
-            $table->foreign('id_usuario')->references('id')->on('users');
-            $table->foreign('id_metodo_pago')->references('id')->on('metodos_pago');
-            $table->foreign('id_metodo_envio')->references('id')->on('metodos_envio');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('metodo_pago_id')->references('id')->on('metodos_pago');
+            $table->foreign('metodo_envio_id')->references('id')->on('metodos_envio');
 
 
             $table->timestamps();

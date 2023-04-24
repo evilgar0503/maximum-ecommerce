@@ -49,9 +49,10 @@ class NoticiaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Noticia $noticia)
+    public function show(int $id)
     {
-        //
+        $noticia = Noticia::findOrFail($id);
+        return view('blog.notice')->with('noticia', $noticia);
     }
 
     /**
