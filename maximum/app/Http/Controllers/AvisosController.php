@@ -12,7 +12,7 @@ class AvisosController extends Controller
      */
     public function index()
     {
-        //
+        //prueba
     }
 
     /**
