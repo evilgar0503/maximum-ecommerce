@@ -58,9 +58,10 @@ class NoticiaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Noticia $noticia)
+    public function edit(int $id)
     {
-        //
+        $noticia = Noticia::findOrFail($id);
+        return view('blog.edit')->with('noticia', $noticia);
     }
 
     /**
@@ -68,7 +69,24 @@ class NoticiaController extends Controller
      */
     public function update(Request $request, Noticia $noticia)
     {
-        //
+        $request->validate([
+            'titulo' => ['required', 'string', 'max:255'],
+            'cuerpo' => ['required', 'string'],
+        ]);
+
+        $noticia = Noticia::findOrFail($request->id);
+        $noticia->titulo = $request->titulo;
+        $noticia->cuerpo = $request->cuerpo;
+
+        if($request->imagen != null) {
+            $nameImg = time()."-".$request->file('imagen')->getClientOriginalName();
+            $ruta = "img/".$nameImg;
+            $request->file('imagen')->storeAs('public/img', $nameImg);
+            $noticia->ruta_imagen = $ruta;
+        }
+
+        $noticia->save();
+        return redirect()->route('blog');
     }
 
     /**

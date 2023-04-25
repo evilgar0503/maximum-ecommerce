@@ -29,6 +29,8 @@ Route::controller(RedirectionController::class)->group(function () {
 Route::get('/blog', [NoticiaController::class, 'index'])->name('blog');
 
 Route::post('/noticia/create', [NoticiaController::class, 'create'])->name('noticia.create');
+Route::get('/noticia/edit/{id}', [NoticiaController::class, 'edit'])->name('noticia.edit');
+Route::post('/notice/edit', [NoticiaController::class, 'update'])->name('noticia.update');
 Route::post('/noticia', [ComentarioController::class, 'store'])->name('comentario.create');
 
 Route::get('/noticia/{id}', [NoticiaController::class, 'show'])->name('noticia.show');

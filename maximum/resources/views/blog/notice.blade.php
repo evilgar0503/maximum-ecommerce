@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="bg-white h-fit pt-24 blog">
+    <div class="bg-white h-fit pt-36 blog">
         <div class="mx-56">
             <div class=" w-fit">
                 <a href="{{ route('blog') }}" class="flex m-5 items-center hover:scale-105 transition duration-500">
@@ -18,6 +18,7 @@
                     </svg>
                     <span class="ml-2">Volver al blog</span>
                 </a>
+                <img src="/img/perro-comments-2.png" class="comment-dog-2">
             </div>
             <hr>
 
@@ -33,13 +34,16 @@
                 </div>
             </article>
             <div class="mt-5 p-20">
-                <h2 class="text-xl font-bold mb-5">Comentarios</h2>
-                <img src="/img/perro-comments.png" class="comment-dog">
+                <div class="w-full">
+                    <h2 class="text-xl font-bold mb-5">Comentarios</h2>
+                    <img src="/img/perro-comments.png" class="comment-dog">
+                </div>
+
                 <hr>
                 @auth
-                    <form action="{{route('comentario.create')}}" method="POST">
+                    <form action="{{ route('comentario.create') }}" method="POST">
                         @csrf
-                        <input type="hidden" value="{{$noticia->id}}" name="noticia">
+                        <input type="hidden" value="{{ $noticia->id }}" name="noticia">
                         <div class="flex mt-5">
                             <div class="flex-shrink-0 mr-3">
                                 <img class="mt-2 rounded-full w-8 h-8 sm:w-10 sm:h-10"
@@ -53,7 +57,7 @@
                         </div>
                     </form>
                 @endauth
-                    {{-- $noticia->comentarios()->paginate(5) --}}
+                {{-- $noticia->comentarios()->paginate(5) --}}
                 @foreach ($noticia->comentarios as $comentario)
                     <div class="flex mt-5 comment-hidden comment">
                         <div class="flex-shrink-0 mr-3">
@@ -71,6 +75,9 @@
                 @endforeach
 
             </div>
+            @if (Auth::user()->rol == 'admin')
+                <a href="{{ route('noticia.edit', $noticia->id) }}" class="btn-flotante">Editar</a>
+            @endif
 
         </div>
     </div>

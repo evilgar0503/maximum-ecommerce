@@ -2,7 +2,7 @@
     <div class="bg-white h-fit py-24">
         <div class=" mx-56 mb-16">
             <div class="flex w-full justify-between">
-                <h1 class="text-3xl m-5 font-bold ">Creación noticia</h1>
+                <h1 class="text-3xl m-5 font-bold ">Editar noticia</h1>
 
                 <div class=" w-fit">
                     <a href="{{ route('blog') }}" class="flex m-5 items-center hover:scale-105 transition duration-500">
@@ -25,23 +25,26 @@
             </div>
             <hr>
         </div>
-        <form action="{{ route('noticia.create') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('noticia.update') }}" method="POST" enctype="multipart/form-data">
             @csrf
+            <input type="hidden" name="id" value="{{$noticia->id}}">
             <div class="mx-96 justify-center">
                 <div>
                     <h2 class="text-xl mb-3">Titulo</h2>
                     <input type="text" name="titulo" placeholder="Introduce el título de la noticia..."
-                        class="w-full">
+                        class="w-full" value="{{$noticia->titulo}}">
                 </div>
                 <div class="mt-5">
                     <h2 class="text-xl mb-3">Cuerpo</h2>
-                    <textarea name="cuerpo" id="tinymce" cols="30" rows="10" ></textarea>
+                    <textarea name="cuerpo" id="tinymce" cols="30" rows="10" >{{$noticia->cuerpo}}"</textarea>
                 </div>
                 <div class="mt-5">
                     <h2 class="text-xl mb-3">Portada</h2>
+                    <img src="{{'/storage/'. $noticia->ruta_imagen}}" alt="" width="400px">
+                    <p class="text-sm my-2">Si desea modificar la portada actual, selecciona una nueva imagen de su equipo.</p>
                     <input type="file" id="imagen" name="imagen">
                 </div>
-                <input type="submit" value="Crear" class="float-right btn-forms">
+                <input type="submit" value="Editar" class="float-right btn-forms">
             </div>
 
         </form>

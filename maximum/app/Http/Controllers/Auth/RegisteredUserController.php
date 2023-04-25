@@ -40,7 +40,7 @@ class RegisteredUserController extends Controller
             'nombre' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'ruta_imagen' => '/storage/img/users/defaultProfile.png'
+            'ruta_imagen' => 'img/users/defaultProfile.png'
         ]);
 
         event(new Registered($user));
