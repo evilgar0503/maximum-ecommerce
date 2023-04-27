@@ -44,8 +44,11 @@
             @endforeach
 
         </div>
-        @if (Auth::user()->rol == 'admin')
-            <a href="{{ route('blog.create') }}" class="btn-flotante">Crear</a>
-        @endif
+        @auth
+            @if (Auth::user()->rol == 'admin')
+                <a href="{{ route('blog.create') }}" class="btn-flotante">Crear</a>
+            @endif
+        @endauth
+
     </div>
 </x-app-layout>

@@ -75,9 +75,12 @@
                 @endforeach
 
             </div>
-            @if (Auth::user()->rol == 'admin')
-                <a href="{{ route('noticia.edit', $noticia->id) }}" class="btn-flotante">Editar</a>
-            @endif
+            @auth
+                @if (Auth::user()->rol == 'admin')
+                    <a href="{{ route('noticia.edit', $noticia->id) }}" class="btn-flotante">Editar</a>
+                @endif
+            @endauth
+
 
         </div>
     </div>

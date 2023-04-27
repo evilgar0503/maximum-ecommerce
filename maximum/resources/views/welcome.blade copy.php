@@ -1,51 +1,37 @@
 <x-app-layout>
+    {{-- <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Home') }}
+        </h2>
+    </x-slot> --}}
 
     <div class="home-img h-screen w-100 flex justify-center">
-        {{-- <div class="flex flex-col justify-end mb-28">
+        <div class="flex flex-col justify-end mb-28">
             <a href="#">
                 <div class="btn-us font-semibold uppercase py-4 px-8 rounded">
                     <span>Sobre Nosotros</span>
                 </div>
             </a>
-        </div> --}}
+        </div>
     </div>
-    <div>
-        <svg class="editorial rotate-180 pb-0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-            viewBox="0 24 150 28" preserveAspectRatio="none">
-            <defs>
-                <path id="gentle-wave"
-                    d="M-160 44c30 0
-                        58-18 88-18s
-                        58 18 88 18
-                        58-18 88-18
-                        58 18 88 18
-                        v44h-352z" />
-            </defs>
-            <g class="parallax">
-                <use xlink:href="#gentle-wave" x="50" y="0" fill="#242424" />
-            </g>
-        </svg>
-    </div>
-    <div class="h-fit bg-white py-10">
-        <div class="flex justify-around">
-            <img src="img/element-1.png" class="mr-auto w-2/5 ml-auto ">
+    <div class="h-full">
+        <div class="flag-1 flex">
+            <img src="img/perro-6.png" class="ml-36">
             <div class="w-2/4 ml-auto my-auto">
-                <h1 class="uppercase font-bold text-center text-6xl ">lorem</h1>
-                <p class="mx-24 mt-10">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur corrupti
-                    animi iusto voluptatem
+                <h1 class="uppercase font-bold text-center text-6xl text-white">lorem</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur corrupti animi iusto voluptatem
                     voluptas odit doloribus, incidunt nemo. Incidunt eius consequatur aperiam ab, quas voluptate nam
                     molestias! Harum, soluta eveniet.</p>
             </div>
         </div>
-        <div class="flex justify-around">
-            <div class="w-2/4 ml-auto my-auto">
-                <h1 class="uppercase font-bold text-center text-6xl ">lorem</h1>
-                <p class="mx-24 mt-10">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur corrupti
-                    animi iusto voluptatem
+        <div class="flag-2 flex">
+            <div class="w-2/4 ml-36 my-auto">
+                <h1 class="uppercase font-bold text-center text-6xl text-white">lorem</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur corrupti animi iusto voluptatem
                     voluptas odit doloribus, incidunt nemo. Incidunt eius consequatur aperiam ab, quas voluptate nam
                     molestias! Harum, soluta eveniet.</p>
             </div>
-            <img src="img/element-2.png" class="mr-auto w-2/5 ml-auto">
+            <img src="img/perro-7.png" class="ml-auto mr-24">
         </div>
     </div>
     <div class="h-screen pt-24 text-white">
@@ -96,26 +82,8 @@
 
         </div>
     </div>
-    <div>
-        <svg class="editorial" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-            viewBox="0 24 150 28" preserveAspectRatio="none">
-            <defs>
-                <path id="gentle-wave"
-                    d="M-160 44c30 0
-                        58-18 88-18s
-                        58 18 88 18
-                        58-18 88-18
-                        58 18 88 18
-                        v44h-352z" />
-            </defs>
-            <g class="parallax">
-                <use xlink:href="#gentle-wave" x="50" y="0" fill="#242424" />
-            </g>
-        </svg>
-    </div>
 
-    <div class="h-fit flex contact-welcome pt-28">
-
+    <div class="h-screen flex">
         <div class="h-3/5 w-full text-white flex flex-col pl-24 justify-center form-back gap-12">
             <div class="flex justify-start">
                 <svg width="24" height="24" viewBox="0 0 800 800" fill="none">

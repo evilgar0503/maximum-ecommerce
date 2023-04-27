@@ -1,8 +1,10 @@
 .home-img {
-    background-image: url("../../img/fondo4.png");
+    /* background-image: url("../../img/fondo4.png");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center; */
+    background-color: #242424;
+    margin-bottom: -2px;
 }
 
 .btn-us {
@@ -16,11 +18,10 @@
     border-radius: 5px;
 }
 
-.tipografy {
+/* .tipografy {
     overflow-x: hidden;
-    font-family: 'Courier New', Courier, monospace;
-
-}
+    font-family: "Courier New", Courier, monospace;
+} */
 .btn-us:hover {
     background-position: 0 100%;
 }
@@ -29,7 +30,7 @@
     color: white;
 }
 
-.flag-1 {
+/* .flag-1 {
     height: 350px;
     background: linear-gradient(to left, #1c1c1c, #d38a2e);
 }
@@ -37,10 +38,10 @@
 .flag-2 {
     height: 350px;
     background: linear-gradient(to right, #1c1c1c, #888787);
-}
+} */
 
 .form {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Courier New", Courier, monospace;
     height: fit-content;
     /* background-color: #d38a2e; */
     background-color: #ffffff;
@@ -67,212 +68,215 @@
 
 /* CARROUSEL CARDS */
 .link-plain,
-      .link-plain:hover,
-      .link-plain:active,
-      .link-plain:visited {
-          text-decoration: none;
-      }
+.link-plain:hover,
+.link-plain:active,
+.link-plain:visited {
+    text-decoration: none;
+}
 
-      .link-plain-f,
-      .link-plain-f:hover,
-      .link-plain-f:active,
-      .link-plain-f:focus,
-      .link-plain-f:visited {
-          color: initial;
-          text-decoration: none !important;
-      }
+.link-plain-f,
+.link-plain-f:hover,
+.link-plain-f:active,
+.link-plain-f:focus,
+.link-plain-f:visited {
+    color: initial;
+    text-decoration: none !important;
+}
 
-      .div-center {
-          display: inline-block;
-          width: 100%;
-          text-align: center;
-      }
-      #va_container {
-          position: relative;
-          max-width: 1140px;
-          margin: auto;
-      }
+.div-center {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+#va_container {
+    position: relative;
+    max-width: 1140px;
+    margin: auto;
+}
 
-      .va-thumbnail {
-          border-radius: 5px;
-          border: 0px;
-          max-width: 100%;
-      }
+.va-thumbnail {
+    border-radius: 5px;
+    border: 0px;
+    max-width: 100%;
+}
 
-      .va-title {
-          margin-top: 0px;
-          margin-bottom: 10px;
-          font-weight: 700;
-      }
+.va-title {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
 
-      .va-carrousel-flexbox {
+.va-carrousel-flexbox {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
 
-          display: flex;
-          flex-wrap: nowrap;
-          overflow-x: auto;
-          scrollbar-width: none;
-      }
+.va-carrousel-flexbox .va-card {
+    flex: 0 0 auto;
+    padding-left: 15px;
+}
 
-      .va-carrousel-flexbox .va-card {
-          flex: 0 0 auto;
-          padding-left: 15px;
-      }
+.va-carrousel-flexbox .va-card:last-child {
+    margin-right: 15px;
+}
 
-      .va-carrousel-flexbox .va-card:last-child {
-          margin-right: 15px;
-      }
+.va-carrousel-flexbox .va-card:last-child::after {
+    content: " ";
+    display: inline-block;
+}
 
-      .va-carrousel-flexbox .va-card:last-child::after {
-          content: ' ';
-          display: inline-block;
-      }
+.va-card {
+    width: 200px;
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+}
 
-      .va-card {
-          width: 200px;
-          cursor: pointer;
-          user-select: none;
-          outline: none;
-      }
+.va-card:hover {
+    user-select: none;
+    outline: none;
+}
 
-      .va-card:hover {
-          user-select: none;
-          outline: none;
-      }
+.va-card a {
+    display: block;
+}
 
-      .va-card a {
-          display: block;
-      }
+@media (min-width: 768px) {
+    .va-card {
+        width: 130px;
+    }
+}
 
-      @media (min-width: 768px) {
-          .va-card {
-              width: 130px;
-          }
-      }
+.va-carrousel,
+.va-carrousel-flexbox {
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+}
 
-      .va-carrousel,
-      .va-carrousel-flexbox {
-          width: 100%;
-          -webkit-overflow-scrolling: touch;
-      }
+.va-carrousel::-webkit-scrollbar,
+.va-carrousel-flexbox::-webkit-scrollbar {
+    display: none;
+}
 
-      .va-carrousel::-webkit-scrollbar,
-      .va-carrousel-flexbox::-webkit-scrollbar {
-          display: none;
-      }
+.va-carrousel-title {
+    display: inline-block;
 
-      .va-carrousel-title {
-          display: inline-block;
+    color: white;
+    font-weight: 700;
+    padding-bottom: 8px;
 
-          color: white;
-          font-weight: 700;
-          padding-bottom: 8px;
+    margin-bottom: 18px;
+}
 
-          margin-bottom: 18px;
-      }
+.va-title {
+    margin-top: 8px;
+    font-size: 11px;
+    max-height: 3em;
+    overflow: hidden;
+    color: white;
+    font-weight: 700;
+}
 
-      .va-title {
-          margin-top: 8px;
-          font-size: 11px;
-          max-height: 3em;
-          overflow: hidden;
-          color: white;
-          font-weight: 700;
-      }
+@media (min-width: 768px) {
+    .va-title {
+        font-size: 13px;
+    }
+}
 
-      @media (min-width: 768px) {
-          .va-title {
-              font-size: 13px;
-          }
-      }
+.va-start-from {
+    font-size: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
 
-      .va-start-from {
-          font-size: 9px;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          color: white;
-      }
+.va-points {
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-block;
+    color: white;
+}
 
-      .va-points {
-          font-size: 12px;
-          font-weight: 700;
-          display: inline-block;
-          color: white;
-      }
+.deals-paddle {
+    height: 38px;
+    width: 38px;
+    color: white;
+    background-color: #00000089;
+    border-radius: 50%;
+    border: 0px solid;
+    margin: auto;
+    position: absolute;
 
-      .deals-paddle {
-          height: 38px;
-          width: 38px;
-          color: white;
-          background-color: #00000089;
-          border-radius: 50%;
-          border: 0px solid;
-          margin: auto;
-          position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
 
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        cursor:pointer;
-      }
+.deals-paddle:focus {
+    outline: none;
+}
 
-      .deals-paddle:focus {
-          outline: none;
-      }
+.deals-paddle:active {
+    border-style: solid;
+    outline: none;
+    user-select: none;
+}
 
-      .deals-paddle:active {
-          border-style: solid;
-          outline: none;
-          user-select: none;
-      }
+.deals-paddle svg {
+    width: 10px;
+}
 
-      .deals-paddle svg {
-          width: 10px;
-      }
+@media (min-width: 768px) {
+    .other-game-button {
+        width: 300px;
+    }
+}
 
-      @media (min-width: 768px) {
-          .other-game-button {
-              width: 300px;
-          }
-      }
+.deals-scroll-left {
+    top: 0;
+    left: 5px;
+    bottom: 0;
+}
 
-      .deals-scroll-left {
-          top: 0;
-          left: 5px;
-          bottom: 0;
-      }
+.deals-scroll-right {
+    top: 0;
+    bottom: 0;
+    right: 5px;
+}
 
-      .deals-scroll-right {
-          top: 0;
-          bottom: 0;
-          right: 5px;
-      }
+.va-carrousel-section {
+    font-family: "Roboto";
+    padding: 0px;
+    position: relative;
+}
 
-      .va-carrousel-section {
-          font-family: "Roboto";
-          padding: 0px;
-          position: relative;
-      }
+@media (min-width: 768px) {
+    .va-carrousel-section {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
 
-      @media (min-width: 768px) {
+.va-whitewrap {
+    /*         background-color: white; */
+    padding-top: 15px;
+    margin-top: 15px;
+}
 
-          .va-carrousel-section {
-              padding-left: 15px;
-              padding-right: 15px;
-          }
-      }
+.va-seeall {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    border-top: 1px solid #dddddd;
+    text-align: center;
+    padding: 10px;
+}
 
-      .va-whitewrap {
-  /*         background-color: white; */
-          padding-top: 15px;
-          margin-top: 15px;
-      }
 
-      .va-seeall {
-          display: block;
-          font-size: 18px;
-          font-weight: 700;
-          border-top: 1px solid #DDDDDD;
-          text-align: center;
-          padding: 10px;
-      }
+.contact-welcome {
+    background-color: #242424;
+}
