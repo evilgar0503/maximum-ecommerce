@@ -1,10 +1,10 @@
 <x-app-layout>
     <div class="bg-white h-fit pt-24 blog">
-        <div class="mx-56">
+        <div class="md:mx-16 xl:mx-44">
             <h1 class="text-3xl m-5 font-bold">Blog</h1>
             <hr>
         </div>
-        <div class="p-16 grid grid-cols-3 gap-14 mx-44">
+        <div class="p-16 md:px-16 xl:px-0 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-14 xl:mx-44">
             @foreach ($noticias as $noticia)
                 <article class="card card--2">
                     <div class="card__info-hover">
