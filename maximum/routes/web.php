@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::controller(RedirectionController::class)->group(function () {
     Route::get('/', 'index')->name('home');
     Route::get('/contacto', 'contact')->name('contacto');
+    Route::get('/products', 'shop')->name('shop');
     Route::middleware(['auth', 'admin'])->group(function () {
         Route::get('/blog/create', 'blogCreate')->name('blog.create');
     });

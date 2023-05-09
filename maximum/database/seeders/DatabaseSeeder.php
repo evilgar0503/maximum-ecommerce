@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Comentario;
 use App\Models\Noticia;
+use App\Models\Producto;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -24,6 +25,8 @@ class DatabaseSeeder extends Seeder
         Noticia::factory(6)->create();
         \App\Models\User::factory(10)->create();
         Comentario::factory(30)->create();
+        Producto::factory(5)->create();
+
 
     }
 }

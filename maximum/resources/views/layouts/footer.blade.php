@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer bottom-0 w-full">
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div class="mb-6 md:mb-0 flex">
             <a href="{{ route('home') }}">

@@ -1,7 +1,7 @@
 <x-app-layout>
-    @if (isset($success))
+    {{-- @if (isset($success))
         @echo('hola');
-    @endif
+    @endif --}}
     <div class="bg-white h-56 info text-black">
     </div>
     <div class="absolute flex justify-around  info-contact w-full">
@@ -60,7 +60,7 @@
     <form action="{{ route('avisos.store') }}" method="POST">
         @csrf
 
-        <div class="h-screen flex mt-36">
+        <div class="h-screen flex mt-36 form-contact-page">
             <div class="w-2/5 m-auto form-contact rounded ">
                 <img src="img/perro-9.png" class="perro-contact-1">
                 <img src="img/perro-10.png" class="perro-contact-2">
@@ -100,12 +100,11 @@
             </div>
         </div>
     </form>
-
-    </div>
-    <div class="mt-24 p-2 h-96">
+    <div class="pt-24 p-2 h-96 form-contact-page">
         <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3167.749461274978!2d-4.200511724366531!3d37.443022972070814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6d91be24f7a9a7%3A0xde80e8c045b4f431!2sPIENSOS%20ARCADIA%20S.L.!5e0!3m2!1ses!2ses!4v1681716831985!5m2!1ses!2ses"
             width="" height="" style="border:0;" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade" class="w-full h-full"></iframe>
     </div>
+
 </x-app-layout>

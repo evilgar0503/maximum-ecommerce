@@ -1,0 +1,71 @@
+.containerSwiper{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.mySwiper {
+    align-items: center;
+    margin-bottom: 7%;
+}
+
+.cardCarrousel {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    width: 20%;
+    box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+}
+
+.swiper-slide {
+    margin-top: 7%;
+    display: contents;
+    align-items: center;
+}
+
+.cardCarrousel img {
+    width: 20vh;
+    height: 20vh;
+    border-radius: 100%;
+    margin: auto;
+    margin-top: -100px;
+}
+
+.h3Card,
+.h4Card {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.pCard {
+    font-size: 15px;
+    line-height: 20px;
+    color: #222222;
+}
+
+.h3Card {
+    font-size: 16px;
+}
+
+.h4Card {
+    font-size: 12px;
+    margin-top: 10px;
+    color: #0078ce;
+}
+
+.swiper-button-next, .swiper-rtl .swiper-button-prev {
+    color: #0096FF;
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+    font-size: 32px;
+}
+    
+@media only screen and (max-width: 767px) {
+    .swiper-slide {
+        margin-top: 15%;
+    }
+}
