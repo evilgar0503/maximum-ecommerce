@@ -25,8 +25,8 @@ class RedirectionController extends Controller
     }
 
     public function shop() {
-        $productos = Producto::all();
-        return view('shop.shop')->with('productos', $productos);
+
+        return view('shop.shop');
     }
 
 }
