@@ -1,4 +1,5 @@
-cards = document.querySelectorAll(".swiper-slide");
+cards = document.querySelectorAll('.swiper-slide');
+console.log(cards)
 cont = 0;
 if(cards.length <=1 ) {
     cont = 1;
@@ -8,18 +9,27 @@ else if(cards.length == 2) {
 }
 else  if(cards.length >=3) {
     cont = 3;
+
+}
+else  if(cards.length >=4) {
+    cont = 4;
+
+}
+else  if(cards.length >=5) {
+    cont = 5;
+
 }
 // Swiper
 
 var slider = new Swiper(".mySwiper", {
-    slidesPerView: 3,
-    spaceBetween: 30,
+    slidesPerView: 4,
+    spaceBetween: 50,
     slidesPerGroup: 1,
     loop: false,
     breakpoints: {
     '767': {
     slidesPerView: cont,
-    spaceBetween: 30,},
+    spaceBetween: 50,},
     },
     navigation: {
       nextEl: ".swiper-button-next",
@@ -29,3 +39,4 @@ var slider = new Swiper(".mySwiper", {
         delay: 2500,
     }
 })
+

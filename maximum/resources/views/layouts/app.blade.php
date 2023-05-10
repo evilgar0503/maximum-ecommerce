@@ -25,17 +25,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
-    {{-- Carrousel --}}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/owl.carousel.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css" rel="stylesheet">
-
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="/js/custom/navbar.js"></script>
     <script src="/js/custom/home.js"></script>
     <script src="/js/custom/notice.js"></script>
-    <script src="/js/custom/carrousel.js"></script>
     <script src="https://cdn.tiny.cloud/1/56oujekm1gcury9eogc9d77b4uh144jkkyl7euz4blokqi7j/tinymce/5/tinymce.min.js"
         referrerpolicy="origin"></script>
 
@@ -44,10 +38,7 @@
             selector: '#tinymce'
         });
     </script>
-
-
-
-
+    @livewireStyles
 
 </head>
 
@@ -71,6 +62,10 @@
         @include('layouts.footer')
 
     </div>
+    <script src="/js/custom/carrousel.js"></script>
+    @livewireScripts
+
+
 </body>
 
 </html>

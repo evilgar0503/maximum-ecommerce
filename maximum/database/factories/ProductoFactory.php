@@ -16,6 +16,7 @@ class ProductoFactory extends Factory
      */
     public function definition(): array
     {
+        $imgProductos = ['img/saco-1.jpeg', 'img/saco-2.jpeg', 'img/saco-3.jpeg', 'img/saco-4.jpeg', 'img/saco-5.jpeg'];
         return [
             //
             'nombre' => $this->faker->name(),
@@ -25,7 +26,7 @@ class ProductoFactory extends Factory
             'precio_empresa' => $this->faker->randomFloat(2, 2.00, 200.00),
             'stock' => $this->faker->randomNumber(2),
             'estado' => 'activo',
-            'ruta_imagen'=> 'img/noticiaPrueba.jpg',
+            'ruta_imagen'=> $this->faker->randomElement($imgProductos),
         ];
     }
 }

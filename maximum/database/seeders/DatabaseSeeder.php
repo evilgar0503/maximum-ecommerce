@@ -25,8 +25,7 @@ class DatabaseSeeder extends Seeder
         Noticia::factory(6)->create();
         \App\Models\User::factory(10)->create();
         Comentario::factory(30)->create();
-        Producto::factory(5)->create();
-
+        Producto::factory(10)->create();
 
     }
 }
