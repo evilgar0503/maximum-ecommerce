@@ -25,7 +25,6 @@ class RedirectionController extends Controller
     }
 
     public function shop() {
-
         return view('shop.shop');
     }
 

@@ -1,10 +1,10 @@
-<div class="w-3/5 my-24 mx-auto">
-    <div class="text-xl flex justify-between my-4">
+<div class="w-3/5 my-16 mx-auto">
+    <div class="flex justify-between my-4 text-md">
         <span>
             {{ count($productos) }} resultados
         </span>
         <span>
-            <select wire:model="precio" class="rounded w-52 p-2">
+            <select wire:model="precio" class="rounded w-52 p-1 text-sm">
                 <option value="">Relevancia</option>
                 <option value="asc">Precio ascendente</option>
                 <option value="desc">Precio descendente</option>
@@ -13,10 +13,9 @@
     </div>
     <hr>
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-14 my-4">
-
         @foreach ($productos as $producto)
             <div class="bg-white shadow-md rounded-lg max-w-sm ">
-                <a href="#">
+                <a href="{{route('product.view', $producto->id)}}">
                     <img class="rounded-t-lg p-8" src="{{ '/' . $producto->ruta_imagen }}" alt="product image">
                 </a>
                 <div class="px-5 pb-5">

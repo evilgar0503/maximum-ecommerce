@@ -62,7 +62,7 @@
                     @foreach ($productos as $producto)
                         <div class="swiper-slide">
                             <div class="bg-white shadow-md rounded-lg max-w-sm ">
-                                <a href="#">
+                                <a href="{{route('product.view', $producto->id)}}">
                                     <img class="rounded-t-lg p-8" src="{{ '/' . $producto->ruta_imagen }}"
                                         alt="product image">
                                 </a>

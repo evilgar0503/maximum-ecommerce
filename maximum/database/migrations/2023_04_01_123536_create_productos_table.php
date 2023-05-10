@@ -15,6 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->longText('descripcion');
+            $table->text('ingredientes');
+            $table->text('instrucciones');
+            $table->string('marca');
+            $table->string('sabor');
+            $table->string('edad');
+            $table->integer('peso');
             $table->float('precio');
             $table->float('precio_descuento');
             $table->float('precio_empresa');

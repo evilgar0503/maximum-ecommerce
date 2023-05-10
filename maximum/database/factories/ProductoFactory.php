@@ -20,12 +20,18 @@ class ProductoFactory extends Factory
         return [
             //
             'nombre' => $this->faker->name(),
-            'descripcion' => $this->faker->text(700),
+            'descripcion' => $this->faker->text(4000),
+            'ingredientes' => $this->faker->text(700),
+            'instrucciones' => $this->faker->text(700),
             'precio' => $this->faker->randomFloat(2, 2.00, 200.00),
             'precio_descuento' => $this->faker->randomFloat(2, 2.00, 200.00),
             'precio_empresa' => $this->faker->randomFloat(2, 2.00, 200.00),
             'stock' => $this->faker->randomNumber(2),
             'estado' => 'activo',
+            'marca' => $this->faker->words(2, true),
+            'sabor' => $this->faker->words(2, true),
+            'edad' => $this->faker->randomNumber(1).' - '.$this->faker->randomNumber(2).' años.',
+            'peso' => $this->faker->randomNumber(2),
             'ruta_imagen'=> $this->faker->randomElement($imgProductos),
         ];
     }

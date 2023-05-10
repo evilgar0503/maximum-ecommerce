@@ -8,7 +8,7 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
@@ -31,6 +31,7 @@
     <script src="/js/custom/navbar.js"></script>
     <script src="/js/custom/home.js"></script>
     <script src="/js/custom/notice.js"></script>
+    <script src="/js/custom/inputs.js"></script>
     <script src="https://cdn.tiny.cloud/1/56oujekm1gcury9eogc9d77b4uh144jkkyl7euz4blokqi7j/tinymce/5/tinymce.min.js"
         referrerpolicy="origin"></script>
 
@@ -65,6 +66,7 @@
 
     </div>
 
+    <script src="/js/custom/product.js"></script>
     <script src="/js/custom/carrousel.js"></script>
     @livewireScripts
 </body>
