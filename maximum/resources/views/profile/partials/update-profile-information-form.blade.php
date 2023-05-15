@@ -17,7 +17,7 @@
         @csrf
         @method('patch')
         <div class="flex">
-            <img class="mt-2 rounded-full w-8 h-8 sm:w-28 sm:h-28" src="{{ 'storage/' . auth()->user()->ruta_imagen }}">
+            <img class="mt-2 rounded-full w-24 h-24 sm:w-28 sm:h-28" src="{{ 'storage/' . auth()->user()->ruta_imagen }}">
             <div class="py-8 mt-auto">
                 <div class="file-input flex items-center">
                     <div class="flex items-center">
@@ -38,7 +38,7 @@
         </div>
         <p class="text-sm text-gray-400">Selecciona una nueva imagen de perfil y presione "Actualizar" para aplicar
             los cambios.</p>
-        <div class="grid grid-cols-2 gap-5">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
             <div>
                 <x-input-label for="nombre" :value="__('Nombre')" />
                 <x-text-input id="nombre" name="nombre" type="text" class="mt-1 block w-full" :value="old('nombre', auth()->user()->nombre)"
@@ -53,7 +53,7 @@
                 <x-input-error class="mt-2" :messages="$errors->get('apellidos')" />
             </div>
         </div>
-        <div class="grid grid-cols-2 gap-5">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
             <div>
                 <x-input-label for="dni" :value="__('Dni')" />
                 <x-text-input id="dni" name="dni" type="text" class="mt-1 block w-full" :value="old('dni', auth()->user()->dni)"
@@ -69,7 +69,7 @@
 
         </div>
 
-        <div class="grid grid-cols-2 gap-5">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
             <div>
                 <x-input-label for="email" :value="__('Correo electrónico')" />
                 <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', auth()->user()->email)"

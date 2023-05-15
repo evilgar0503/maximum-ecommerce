@@ -20,7 +20,7 @@
                 <x-input-error class="mt-2" :messages="$errors->get('direccion')" />
             </div>
         </div>
-        <div class="grid grid-cols-2 gap-5">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
             <div>
                 <x-input-label for="cp" :value="__('Código Postal')" />
                 <x-text-input id="cp" name="cp" type="text" class="mt-1 block w-full" :value="old('cp', auth()->user()->cp)"
@@ -36,7 +36,7 @@
 
         </div>
 
-        <div class="grid grid-cols-2 gap-5">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
             <div>
                 <x-input-label for="provincia" :value="__('Provincia')" />
                 <x-text-input id="provincia" name="provincia" type="text" class="mt-1 block w-full" :value="old('provincia', auth()->user()->provincia)"

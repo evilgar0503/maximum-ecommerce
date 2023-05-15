@@ -1,12 +1,40 @@
 .home-img {
     width: 100%;
-    height: 102vh;
+    height: 62vh;
     background-image: url("../../img/portada-2.jpg");
     background-size: auto;
     background-repeat: no-repeat;
     background-position: center;
     background-color: #242424;
+    margin-bottom: 0px;
+}
+
+.home-img::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to bottom, transparent, #212121);
+    z-index: 1000;
+}
+
+@media (min-width: 1024px) {
+    .home-img {
+        height: 102vh;
     margin-bottom: -20px;
+    background-size: cover;
+
+    }
+    .home-img::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 300px;
+        background: linear-gradient(to bottom, transparent, #212121);
+        z-index: 1000;
+    }
 }
 
 .btn-us {
@@ -68,20 +96,20 @@
     position: absolute;
 }
 
-
 .contact-welcome {
     background-color: #242424;
 }
 
-.home-img::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 300px;
-    background: linear-gradient(to bottom, transparent, #212121);
-    z-index: 1000;
-}
+
 .wave {
     margin-bottom: -10px;
+}
+
+.columna {
+    flex-direction: row;
+}
+@media (min-width: 1024px) {
+    .columna {
+        flex-direction: column !important;
+    }
 }

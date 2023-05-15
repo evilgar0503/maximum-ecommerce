@@ -1,5 +1,4 @@
 <x-app-layout>
-
     <div class="home-img flex justify-center">
         {{-- <img src="img/portada-1.jpeg" class="object-cover"> --}}
         {{-- <div class="flex flex-col justify-end mb-28">

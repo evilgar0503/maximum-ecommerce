@@ -34,6 +34,7 @@
     <script src="/js/custom/home.js"></script>
     <script src="/js/custom/notice.js"></script>
     <script src="/js/custom/inputs.js"></script>
+    <script src="js/custom/navbar.js"></script>
     <script src="https://cdn.tiny.cloud/1/56oujekm1gcury9eogc9d77b4uh144jkkyl7euz4blokqi7j/tinymce/5/tinymce.min.js"
         referrerpolicy="origin"></script>
 

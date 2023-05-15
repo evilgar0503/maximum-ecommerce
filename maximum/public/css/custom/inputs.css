@@ -119,12 +119,12 @@
 /* Button cart */
 .cart-button {
     width: 100%;
-    background-color: #d38a2e;
+    background-color: #d38a2e !important;
     color: white;
     font-weight: bold;
 }
 .cart-button:hover {
-    background-color: #c57a1d;
+    background-color: #c57a1d !important;
 }
 /* Desplegables */
 

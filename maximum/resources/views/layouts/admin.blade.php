@@ -17,7 +17,9 @@
     <link rel="stylesheet" type="text/css" href="/css/custom/admin.css">
     <link rel="stylesheet" type="text/css" href="/css/custom/inputs.css">
 
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -32,7 +34,7 @@
 <body class="font-sans antialiased">
     <div class="flex items-center justify-center ">
         @include('layouts.navigation')
-        <div class="p-0 w-3/5 mx-auto grid grid-cols-5 mt-24 gap-12">
+        <div class="p-0 lg:w-3/5 mx-auto grid grid-cols-5 mt-12 lg:mt-24 gap-12">
             <!-- Navigation -->
             <div class="text-black lg:py-10 sm:rounded-xl flex lg:flex-col">
                 <nav class="flex items-center flex-row space-x-2 lg:space-x-0 lg:flex-col lg:space-y-5 dashboardMenu">
@@ -51,7 +53,7 @@
                         href="#">
                         Hola
                     </a> --}}
-                    <div class="w-full p-4 text-justify">
+                    <div class="w-full p-4 text-justify hidden lg:block">
                         <div>
                             <h1 class="font-bold text-md mb-2">Mis datos</h1>
                             <hr class="bg-black">
@@ -120,7 +122,7 @@
                 </nav>
             </div>
             <!-- Content -->
-            <div class="col-start-2 col-span-4 px-2 sm:px-0">
+            <div class="col-start-1 col-span-5 lg:col-start-2 lg:col-span-4 px-2 sm:px-0">
                 @yield('content')
             </div>
         </div>
