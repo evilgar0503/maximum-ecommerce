@@ -31,10 +31,33 @@ class ProfileController extends Controller
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
+        if ($request->hasFile('imagen')) {
+            $nombrefoto = time() . '-' . $request->file('imagen')->getClientOriginalName();
+            $ruta = "img/users/" . $nombrefoto;
+            $request->user()->ruta_imagen = $ruta;
+            $request->file('imagen')->storeAs('public/img/users', $nombrefoto);
+        }
+        // dd($request->user());
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::route('dashboard')->with('status', 'profile-updated');
+    }
+
+    public function address(Request $request): RedirectResponse
+    {
+
+        $rules = [
+            'direccion' => ['string', 'max:255'],
+            'cp' => ['numeric', 'digits:5'],
+            'ciudad' => ['string', 'max:100'],
+            'provincia' => ['string', 'max:100'],
+            'pais' => ['string', 'max:100'],
+        ];
+        $request->user()->fill($request->validate($rules));
+        $request->user()->save();
+
+        return Redirect::route('dashboard')->with('status', 'profile-updated');
     }
 
     /**

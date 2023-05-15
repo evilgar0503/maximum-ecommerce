@@ -6,6 +6,7 @@ use App\Http\Controllers\NoticiaController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\RedirectionController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,13 +46,18 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::any('/profile', [ProfileController::class, 'address'])->name('profile.address');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 Route::get('/product/{id}', [ProductoController::class, 'index'])->name('product.view');
 
+Route::get('/cart', [CartController::class, 'cart'])->name('cart.index');
+Route::post('/cart/add', [CartController::class, 'add'])->name('cart.store');
+Route::post('/cart/update', [CartController::class, 'update'])->name('cart.update');
+Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
+Route::post('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
 
 
 require __DIR__ . '/auth.php';

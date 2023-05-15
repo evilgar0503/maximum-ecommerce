@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('provincia')->nullable();
             $table->string('ciudad')->nullable();
             $table->string('direccion')->nullable();
+            $table->date('fecha_nacimiento')->nullable();
             $table->integer('cp')->nullable();
             $table->set('rol', ['cliente', 'admin', 'empresa'])->default('cliente');
             $table->string('ruta_imagen');

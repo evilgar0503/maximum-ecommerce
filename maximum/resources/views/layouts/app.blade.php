@@ -19,6 +19,9 @@
     <link rel="stylesheet" type="text/css" href="/css/custom/blog.css">
     <link rel="stylesheet" type="text/css" href="/css/custom/carrousel.css">
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
 
     <!-- Scripts -->
@@ -28,7 +31,6 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="/js/custom/navbar.js"></script>
     <script src="/js/custom/home.js"></script>
     <script src="/js/custom/notice.js"></script>
     <script src="/js/custom/inputs.js"></script>
@@ -68,6 +70,7 @@
 
     <script src="/js/custom/product.js"></script>
     <script src="/js/custom/carrousel.js"></script>
+    <script src="/js/custom/cart.js"></script>
     @livewireScripts
 </body>
 

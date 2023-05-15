@@ -67,8 +67,17 @@
                 <input type="number" class="bg-gray-100 px-5 rounded w-1/3 outline-none mt-4 out" value="1"
                     min="0" max="9">
                 <p class="text-sm text-gray-500">Indica la cantidad que desea añadir al carrito.</p>
-                <button class=" my-6 p-4 rounded-tr-2xl rounded-br-2xl cart-button">Añadir al
-                    carrito</button>
+                <form action="{{ route('cart.store') }}" method="POST">
+                    {{ csrf_field() }}
+                    <input type="hidden" value="{{ $producto->id }}" id="id" name="id">
+                    <input type="hidden" value="{{ $producto->nombre }}" id="name" name="name">
+                    <input type="hidden" value="{{ $producto->precio }}" id="price" name="price">
+                    <input type="hidden" value="{{ $producto->ruta_imagen }}" id="img" name="img">
+                    <input type="hidden" value="{{ $producto->slug }}" id="slug" name="slug">
+                    <input type="hidden" value="1" id="quantity" name="quantity">
+                    <button type="submit" class=" my-6 p-4 rounded-tr-2xl rounded-br-2xl cart-button">Añadir al
+                        carrito</button>
+                </form>
             </div>
             {{-- <div class="absolute">
                 <div class="accordion">

@@ -139,3 +139,30 @@
     display: none;
     padding: 10px;
 }
+
+.buttonGeneral {
+    background-color: white !important;
+    color: #d38a2e;
+    border-color: #d38a2e;
+    border: 1px solid;
+    font-weight: bold;
+    border-radius: 8px;
+}
+.buttonGeneral:hover {
+    background-color: #c57a1d !important;
+    color: white;
+}
+
+/* img perfil */
+input[type="file"].custom {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute !important;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+

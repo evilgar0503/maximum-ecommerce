@@ -25,6 +25,22 @@
                         {{ __('Tienda') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden my-auto space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-dropdown align="right">
+                        <x-slot name="trigger">
+                            <button>
+                                <i class="fa fa-shopping-cart"></i> {{ \Cart::getTotalQuantity() }}
+                            </button>
+                        </x-slot>
+
+                        <x-slot name="content">
+                            @include('shop.cart-drop')
+                        </x-slot>
+                    </x-dropdown>
+                </div>
+
+
+
 
             </div>
             @auth
@@ -49,8 +65,8 @@
                         </x-slot>
 
                         <x-slot name="content">
-                            <x-dropdown-link :href="route('profile.edit')">
-                                {{ __('Profile') }}
+                            <x-dropdown-link :href="route('dashboard')">
+                                {{ __('Configuración') }}
                             </x-dropdown-link>
 
                             <!-- Authentication -->
@@ -80,21 +96,21 @@
                         </svg>
                     </button>
                 </div>
-                @else
+            @else
                 <!-- Navigation Links -->
-                        <div class="hidden  space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                                {{ __('Dashboard') }}
-                            </x-nav-link>
-                        </div>
-                        <div class="flex space-x-8 sm:-my-px sm:ml-10 sm:flex justify-end">
-                            <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
-                                {{ __('Iniciar Sesion') }}
-                            </x-nav-link>
-                            <x-nav-link :href="route('register')" :active="request()->routeIs('register')">
-                                {{ __('Registrarse') }}
-                            </x-nav-link>
-                        </div>
+                <div class="hidden  space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                        {{ __('Dashboard') }}
+                    </x-nav-link>
+                </div>
+                <div class="flex space-x-8 sm:-my-px sm:ml-10 sm:flex justify-end">
+                    <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
+                        {{ __('Iniciar Sesion') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('register')" :active="request()->routeIs('register')">
+                        {{ __('Registrarse') }}
+                    </x-nav-link>
+                </div>
 
 
 
@@ -118,8 +134,8 @@
                 </div>
 
                 <div class="mt-3 space-y-1">
-                    <x-responsive-nav-link :href="route('profile.edit')">
-                        {{ __('Profile') }}
+                    <x-responsive-nav-link :href="route('dashboard')">
+                        {{ __('Configuración') }}
                     </x-responsive-nav-link>
 
                     <!-- Authentication -->
