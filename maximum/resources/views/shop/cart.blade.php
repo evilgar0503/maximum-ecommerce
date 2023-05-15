@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="mx-24 mt-24">
+    <div class="lg:mx-24 mt-24">
         {{-- <div class="">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -109,8 +109,8 @@
             <br><br>
         </div> --}}
 
-        <div class="flex shadow-md my-10">
-            <div class="w-3/4 bg-white px-10 py-10">
+        <div class="flex flex-col lg:flex-row shadow-md my-10">
+            <div class="w-full bg-white px-3 lg:px-10 py-10">
                 <div class="flex justify-between border-b pb-8">
                     <h1 class="font-semibold text-2xl">Carrito</h1>
                     <h2 class="font-semibold text-2xl">{{ count($cartCollection) }} producto(s)</h2>
@@ -172,10 +172,10 @@
                 </a>
             </div>
 
-            <div id="summary" class="w-1/4 px-8 py-10">
+            <div id="summary" class="w-full lg:w-1/4 px-3 lg:px-8 py-10">
                 <h1 class="font-semibold text-2xl border-b pb-8">Resumen pedido</h1>
                 <div class="flex justify-between mt-10 mb-5">
-                    <span class="font-semibold text-sm uppercase">Items 3</span>
+                    <span class="font-semibold text-sm uppercase">Subtotal</span>
                     <span class="font-semibold text-sm">{{ \Cart::getTotal() }}€</span>
                 </div>
                 <div>
