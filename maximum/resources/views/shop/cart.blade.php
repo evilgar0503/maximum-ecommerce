@@ -145,7 +145,7 @@
 
                                 <div class="form-group row">
                                     <input class="mx-2 border text-center w-16" id="quantity" min="1" type="number" name="quantity" value="{{ $item->quantity }}">
-                                    <input type="hidden" value="{{ $item->id }}" id="id" name="id">
+                                    <input type="hidden" value="{{ $item->id }}"  id="id" name="id">
                                 </div>
                             </form>
                             {{-- <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
