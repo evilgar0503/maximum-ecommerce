@@ -28,32 +28,37 @@
                     </div>
                 </div>
                 @auth
-                    <div class="hidden my-auto space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-dropdown align="right">
-                            <x-slot name="trigger">
-                                <button>
-                                    <i class="fa fa-shopping-cart"></i> {{ \Cart::getTotalQuantity() }}
-                                </button>
-                            </x-slot>
+                <div class="my-auto">
+                    <x-sidebar align="right">
+                        <x-slot name="trigger">
+                            <button>
+                                <i class="fa fa-shopping-cart"></i> {{ \Cart::getTotalQuantity() }}
+                            </button>
+                        </x-slot>
 
-                            <x-slot name="content">
-                                @include('shop.cart-drop')
-                            </x-slot>
-                        </x-dropdown>
+                        <x-slot name="content">
+                            @include('shop.cart-drop')
+                        </x-slot>
+                    </x-sidebar>
+                </div>
+                @else
+                <div class="flex flex-row">
+                    <div class="hidden  space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
+                            {{ __('Iniciar Sesión') }}
+                        </x-nav-link>
                     </div>
-                    @else
-                    <div class="flex flex-row">
-                        <div class="hidden  space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
-                                {{ __('Iniciar Sesión') }}
-                            </x-nav-link>
-                        </div>
-                        <div class="hidden  space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <x-nav-link :href="route('register')" :active="request()->routeIs('register')">
-                                {{ __('Registrarse') }}
-                            </x-nav-link>
-                        </div>
+                    <div class="hidden  space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('register')" :active="request()->routeIs('register')">
+                            {{ __('Registrarse') }}
+                        </x-nav-link>
                     </div>
+                </div>
+                @endauth
+
+
+                @auth
+
                 @endauth
 
 
@@ -129,6 +134,7 @@
     </div>
 
     <!-- Responsive Navigation Menu -->
+
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden justify-between w-100">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
@@ -145,6 +151,7 @@
             </x-responsive-nav-link>
         </div>
         @auth
+
             <div class="pt-4 pb-1 border-t border-gray-200">
                 <div class="px-4">
                     <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>

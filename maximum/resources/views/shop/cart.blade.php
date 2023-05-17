@@ -122,7 +122,7 @@
                     <h3 class="font-semibold text-gray-600 text-xs uppercase w-1/5 text-center">Total</h3>
                 </div>
                 @foreach ($cartCollection as $item)
-                    <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
+                    <div class="flex items-center -mx-8 px-6 py-5">
                         <div class="flex w-2/5">
                             <!-- product -->
                             <div class="w-20">
