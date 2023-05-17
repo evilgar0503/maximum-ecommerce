@@ -51,7 +51,7 @@
                                 class="bg-amber-300 text-amber-700 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded ml-3">5.0</span>
                         </div>
                         <div class="flex items-center justify-between">
-                            <span class="text-xl font-bold text-gray-900">{{ $producto->precio }} €/ud</span>
+                            <span class="text-xl font-bold text-gray-900">{{ $producto->precio }} €</span>
                             <a href="{{ route('product.view', $producto->id) }}"
                                 class="text-white focus:ring-4 font-medium rounded-lg text-sm px-4 py-2.5 text-center pintada">Comprar</a>
 
@@ -62,38 +62,9 @@
             </div>
         @endforeach
     </div>
-    {{-- <div class="col-lg-3">
-                <div class="card" style="margin-bottom: 20px; height: auto;">
-                    <img src="/images/{{ $producto->ruta_imagen }}"
-                         class="card-img-top mx-auto"
-                         style="height: 150px; width: 150px;display: block;"
-                         alt="{{ $producto->ruta_imagen }}"
-                    >
-                    <div class="card-body">
-                        <a href=""><h6 class="card-title">{{ $producto->nombre }}</h6></a>
-                        <p>${{ $producto->precio }}</p>
-                        <form action="{{ route('cart.store') }}" method="POST">
-                            {{ csrf_field() }}
-                            <input type="hidden" value="{{ $producto->id }}" id="id" name="id">
-                            <input type="hidden" value="{{ $producto->nombre }}" id="name" name="name">
-                            <input type="hidden" value="{{ $producto->precio }}" id="price" name="price">
-                            <input type="hidden" value="{{ $producto->ruta_imagen }}" id="img" name="img">
-                            <input type="hidden" value="{{ $producto->slug }}" id="slug" name="slug">
-                            <input type="hidden" value="1" id="quantity" name="quantity">
-                            <div class="card-footer" style="background-color: white;">
-                                  <div class="row">
-                                    <button class="btn btn-secondary btn-sm" class="tooltip-test" title="add to cart">
-                                        <i class="fa fa-shopping-cart"></i> agregar al carrito
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div> --}}
-            <div>
-                {{ $productos->links() }}
-            </div>
+    <div>
+        {{ $productos->links() }}
+    </div>
 </div>
 
 </div>

@@ -22,7 +22,7 @@ else  if(cards.length >=5) {
 // Swiper
 
 var slider = new Swiper(".mySwiper", {
-    slidesPerView: 4,
+    slidesPerView: 1,
     spaceBetween: 50,
     slidesPerGroup: 1,
     loop: false,

@@ -8,40 +8,7 @@
 .menuDashboard a:not(:first-child):hover {
     background-color: #454444;
 }
-/*
-.editButton {
-    background-color: rgb(199, 198, 195);
-    transition-duration: 300ms;
-    transform: translate(-50px, -50px);
-}
-.editButton:hover {
-    transform: translate(-50px, -52px) scale(1.05);
-}
 
-.perfilCard {
-    width: 60%;
-    background-color: #e5e5e5;
-}
-
-/* .perfilCard .dogImg {
-    width: 60%;
-    left: 27%;
-    top: -12.5%;
-    position: absolute;
-} */
-
-/* @media (max-width: 1025px) {
-    .perfilCard {
-        width: 100%;
-    }
-
-    .perfilCard .dogImg {
-        width: 80%;
-        left: 450px;
-        top: 160px;
-        position: absolute;
-    }
-} */
 
 .divData {
     background-color: #f2f2f2;
@@ -55,12 +22,17 @@
 .dashboardMenu li {
     color: #888;
     padding: 3px;
-    padding-left: 20px;
+    padding-left: 5px;
 }
 .dashboardMenu li:hover {
     color: #444444;
 
     background-color: #f7f7f7;
+}
+
+.dashboardMenu a {
+    text-decoration: none;
+
 }
 
 

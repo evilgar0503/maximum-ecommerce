@@ -37,7 +37,7 @@
         <div class="p-0 lg:w-3/5 mx-auto grid grid-cols-5 mt-12 lg:mt-24 gap-12">
             <!-- Navigation -->
             <div class="text-black lg:py-10 sm:rounded-xl flex lg:flex-col">
-                <nav class="flex items-center flex-row space-x-2 lg:space-x-0 lg:flex-col lg:space-y-5 dashboardMenu">
+                <nav class="flex items-center flex-row space-x-2 lg:space-x-0 lg:flex-col lg:space-y-5 ">
                     <!-- ICONO PERFIL -->
                     {{-- <a class="text-white w-full p-4 inline-flex justify-center rounded-md mt-5"
                         href="{{ route('shop') }}">
@@ -53,7 +53,7 @@
                         href="#">
                         Hola
                     </a> --}}
-                    <div class="w-full p-4 text-justify hidden lg:block">
+                    <div class="w-full p-4 hidden lg:block dashboardMenu">
                         <div>
                             <h1 class="font-bold text-md mb-2">Mis datos</h1>
                             <hr class="bg-black">

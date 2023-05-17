@@ -22,6 +22,15 @@
     top: 20px;
 }
 
+.form__label-responsive {
+    position: absolute;
+    top: -10px;
+    font-weight: bold;
+    display: block;
+    transition: 0.2s;
+    font-size: 0.9rem;
+    color: black;
+}
 .form__label {
     position: absolute;
     top: -10px;
@@ -30,6 +39,19 @@
     transition: 0.2s;
     font-size: 1.3rem;
     color: black;
+}
+
+@media (min-width: 1024) {
+
+    .form__label {
+        position: absolute;
+        top: -10px;
+        font-weight: bold;
+        display: block;
+        transition: 0.2s;
+        font-size: 1.3rem;
+        color: black;
+    }
 }
 
 .form__field:focus {

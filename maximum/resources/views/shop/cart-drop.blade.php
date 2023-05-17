@@ -167,7 +167,7 @@
                                         </div>
                                     </div>
                                     <div class="mt-8">
-                                        <div class="mt-36 lg:mt-64">
+                                        <div class="mt-36 lg:mt-52">
                                             <div class="mx-auto my-auto w-3/4 text-center items-center">
                                                 <svg width="110" height="110" viewBox="0 0 128 128" fill="none"
                                                     class="ml-2 w-100 opacity-50">
