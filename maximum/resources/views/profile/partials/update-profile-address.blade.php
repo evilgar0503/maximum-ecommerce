@@ -9,9 +9,8 @@
         </p>
     </header>
 
-    <form method="post" action="{{ route('profile.address') }}" class="mt-6 space-y-6" enctype="multipart/form-data">
+    <form method="post" action="{{ route('profile.address') }}" class="mt-6 space-y-6">
         @csrf
-        @method('patch')
         <div class="">
             <div>
                 <x-input-label for="direccion" :value="__('Dirección')" />
@@ -55,7 +54,7 @@
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Actualizar') }}</x-primary-button>
 
-            @if (session('status') === 'profile-updated')
+            @if (session('status') === 'profile-updated-2')
                 <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)"
                     class="text-sm text-gray-600">{{ __('Actualizado.') }}</p>
             @endif

@@ -26,11 +26,21 @@ class LoginRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'email' => ['required', 'string', 'email'],
+        return ([
+            'email' => ['required', 'email'],
             'password' => ['required', 'string'],
-        ];
+        ]);
     }
+
+    public function messages(): array
+    {
+        return ([
+                'email.email' => 'El email introducido no tiene el formato adecuado.',
+                'password.required' => 'Introduce una contraseña.',
+                'email.required' => 'Introduce un correo electrónico.'
+        ]);
+    }
+
 
     /**
      * Attempt to authenticate the request's credentials.
@@ -45,7 +55,7 @@ class LoginRequest extends FormRequest
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'email' => trans('auth.failed'),
+                $this->messages()
             ]);
         }
 

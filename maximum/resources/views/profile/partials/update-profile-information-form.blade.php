@@ -16,6 +16,7 @@
     <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6" enctype="multipart/form-data">
         @csrf
         @method('patch')
+
         <div class="flex">
             <img class="mt-2 rounded-full w-24 h-24 sm:w-28 sm:h-28" src="{{ 'storage/' . auth()->user()->ruta_imagen }}">
             <div class="py-8 mt-auto">
@@ -105,9 +106,9 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Actualizar') }}</x-primary-button>
 
-            @if (session('status') === 'profile-updated')
+            <x-primary-button>{{ __('Actualizar') }}</x-primary-button>
+            @if (session('status') === 'profile-updated-1')
                 <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)"
                     class="text-sm text-gray-600">{{ __('Actualizado.') }}</p>
             @endif

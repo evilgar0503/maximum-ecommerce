@@ -3,7 +3,7 @@
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
     <h1 class="text-5xl">Iniciar sesión</h1>
-    <p>¿Todavía no tienes cuenta? <a href="{{ route('register') }}" class="text-blue-600">¡Registraté!</a></p>
+    <p>¿Todavía no tienes cuenta? <a href="{{ route('register') }}" class="text-blue-600 outline-none">¡Registraté!</a></p>
     <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg form-login">
         <form method="POST" action="{{ route('login') }}">
             @csrf
@@ -12,24 +12,25 @@
             <div>
                 <x-input-label for="email" :value="__('Correo electrónico')" />
 
-                <input type="text" id="email" name="email" class=" rounded w-full mt-1 " placeholder="Correo electrónico" required>
+                <input type="text" id="email" name="email" class=" rounded w-full mt-1 " placeholder="Correo electrónico" >
+                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+
                 {{-- <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"
-                    required autofocus autocomplete="username" />
-                <x-input-error :messages="$errors->get('email')" class="mt-2" /> --}}
+                    required autofocus autocomplete="username" /> --}}
             </div>
 
             <!-- Password -->
             <div class="mt-4">
-                <x-input-label for="password" :value="__('Correo electrónico')" />
-
-                <input type="password" id="password" name="password" class="rounded w-full mt-1" placeholder="Contraseña" required>
+                <x-input-label for="password" :value="__('Contraseña')" />
+                <input type="password" id="password" name="password" class="rounded w-full mt-1" placeholder="Contraseña" >
+                <x-input-error :messages="$errors->get('password')" class="mt-2" />
             </div>
 
             <!-- Remember Me -->
             <div class="block mt-4">
                 <label for="remember_me" class="inline-flex items-center">
                     <input id="remember_me" type="checkbox"
-                        class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
+                        class="rounded border-gray-300 text-amber-600 shadow-sm focus:ring-amber-500 " name="remember">
                     <span class="ml-2 text-sm text-gray-600">{{ __('Recordarme') }}</span>
                 </label>
             </div>

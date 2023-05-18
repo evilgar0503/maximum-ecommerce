@@ -77,12 +77,11 @@
 }
 
 .form-login input {
-    padding: 10px;
-    padding-left: 15px;
+        padding-left: 15px;
 }
 
 .form-login input:focus {
-    border: 5px solid;
+    border: 1px solid;
     border-color: gray;
     --tw-ring-color: transparent;
 }

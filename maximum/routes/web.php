@@ -46,8 +46,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::any('/profile', [ProfileController::class, 'address'])->name('profile.address');
+    Route::patch('/profile', [ProfileController::class, 'updateprofile'])->name('profile.update');
+    Route::post('/profile', [ProfileController::class, 'address'])->name('profile.address');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 

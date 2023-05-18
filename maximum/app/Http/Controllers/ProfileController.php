@@ -24,8 +24,9 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function updateprofile(ProfileUpdateRequest $request)
     {
+
         $request->user()->fill($request->validated());
 
         if ($request->user()->isDirty('email')) {
@@ -41,7 +42,7 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return Redirect::route('dashboard')->with('status', 'profile-updated');
+        return Redirect::route('dashboard')->with('status', 'profile-updated-1');
     }
 
     public function address(Request $request): RedirectResponse
@@ -57,7 +58,7 @@ class ProfileController extends Controller
         $request->user()->fill($request->validate($rules));
         $request->user()->save();
 
-        return Redirect::route('dashboard')->with('status', 'profile-updated');
+        return Redirect::route('dashboard')->with('status', 'profile-updated-2');
     }
 
     /**
