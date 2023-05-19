@@ -23,19 +23,25 @@ return new class extends Migration
             $table->string('env_nombre');
             $table->string('env_apellidos');
             $table->string('env_dni', 9);
-            $table->string('env_ciudad');
+            $table->string('env_direccion');
             $table->integer('env_cp');
+            $table->string('env_ciudad');
+            $table->string('env_provincia');
+            $table->string('env_pais');
             $table->unsignedBigInteger('metodo_envio_id');
             $table->set('estado', ['pendiente', 'procesado', 'enviado']);
             $table->string('fac_nombre');
             $table->string('fac_apellidos');
             $table->string('fac_dni', 9);
-            $table->string('fac_ciudad');
+            $table->string('fac_direccion');
             $table->integer('fac_cp');
+            $table->string('fac_ciudad');
+            $table->string('fac_provincia');
+            $table->string('fac_pais');
 
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('metodo_pago_id')->references('id')->on('metodos_pago');
-            $table->foreign('metodo_envio_id')->references('id')->on('metodos_envio');
+            $table->foreign('metodo_pago_id')->references('id')->on('metodo_pago');
+            $table->foreign('metodo_envio_id')->references('id')->on('metodo_envio');
 
 
             $table->timestamps();

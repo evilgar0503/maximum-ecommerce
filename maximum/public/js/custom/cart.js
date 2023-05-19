@@ -1,7 +1,12 @@
 
-var quantityInput= document.getElementById('quantity');
-var updateCartForm = document.getElementById('updateCart');
+var quantityInputs = document.querySelectorAll('.quantity-input');
 
-quantityInput.addEventListener('change', function() {
-    updateCartForm.submit();
+quantityInputs.forEach(function(quantityInput) {
+    quantityInput.addEventListener('change', function() {
+        var updateCartForm = document.getElementById('updateCart'+quantityInput.id);
+        updateCartForm.submit();
+    })
 })
+
+var shippingMethod = document.getElementById('shippingMethod');
+console.log(shippingMethod.value)

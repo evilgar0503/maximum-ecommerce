@@ -3,6 +3,7 @@
 use App\Http\Controllers\AvisosController;
 use App\Http\Controllers\ComentarioController;
 use App\Http\Controllers\NoticiaController;
+use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\RedirectionController;
 use App\Http\Controllers\ProfileController;
@@ -58,6 +59,9 @@ Route::post('/cart/add', [CartController::class, 'add'])->name('cart.store');
 Route::post('/cart/update', [CartController::class, 'update'])->name('cart.update');
 Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
 Route::post('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
+Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
+Route::post('/checkout/review', [PedidoController::class, 'review'])->name('checkout.review');
+
 
 
 require __DIR__ . '/auth.php';

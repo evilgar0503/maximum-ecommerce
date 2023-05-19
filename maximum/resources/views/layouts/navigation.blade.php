@@ -1,8 +1,8 @@
-<nav x-data="{ open: false }" class="navbar fixed top-0 w-full">
+<nav x-data="{ open: false }" class="navbar p-0 fixed top-0 w-full">
 
     <!-- Primary Navigation Menu -->
     <div class="w-full lg:mx-16 px-2 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16 mx-auto ">
+        <div class="flex h-16 mx-auto ">
             <div class="flex justify-between w-5/6">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
@@ -55,13 +55,6 @@
                     </div>
                 </div>
                 @endauth
-
-
-                @auth
-
-                @endauth
-
-
             </div>
             @auth
                 <!-- Settings Dropdown -->

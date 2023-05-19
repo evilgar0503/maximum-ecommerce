@@ -34,7 +34,7 @@
 <body class="font-sans antialiased">
     <div class="flex items-center justify-center ">
         @include('layouts.navigation')
-        <div class="p-0 lg:w-3/5 mx-auto grid grid-cols-5 mt-12 lg:mt-24 gap-12">
+        <div class="p-0 lg:w-4/5 mx-auto grid grid-cols-5 mt-12 lg:mt-24 gap-12">
             <!-- Navigation -->
             <div class="text-black lg:py-10 sm:rounded-xl flex lg:flex-col">
                 <nav class="flex items-center flex-row space-x-2 lg:space-x-0 lg:flex-col lg:space-y-5 ">

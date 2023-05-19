@@ -8,7 +8,7 @@
             @endfor
         </div>
         <div class="col-span-5 lg:col-span-2 order-1 lg:order-2">
-                <img src="{{ '/' . $producto->ruta_imagen }}" alt="" class="h-full w-full">
+            <img src="{{ '/' . $producto->ruta_imagen }}" alt="" class="h-full w-full">
         </div>
         <div class="col-span-5 lg:col-span-2 order-3">
             <div class="flex justify-between">
@@ -57,19 +57,18 @@
                 <p class="text-md"><span class="font-bold">Peso del producto:</span> {{ $producto->peso }} kgs.</p>
             </div>
             <div class="mt-4 lg:mt-12">
-                <label for="cantidad" class="font-bold">Cantidad</label>
-                <br>
-                <input type="number" class="bg-gray-100 rounded w-1/6 outline-none mt-2" value="1"
-                    min="0" max="9">
-                <p class="text-sm text-gray-500">Indica la cantidad que desea añadir al carrito.</p>
                 <form action="{{ route('cart.store') }}" method="POST">
                     {{ csrf_field() }}
+                    <label for="cantidad" class="font-bold">Cantidad</label>
+                    <br>
+                    <input type="number" class="bg-gray-100 rounded w-1/6 outline-none mt-2" value="1" min="1" name="quantity">
+                    <p class="text-sm text-gray-500">Indica la cantidad que desea añadir al carrito.</p>
+
                     <input type="hidden" value="{{ $producto->id }}" id="id" name="id">
                     <input type="hidden" value="{{ $producto->nombre }}" id="name" name="name">
                     <input type="hidden" value="{{ $producto->precio }}" id="price" name="price">
                     <input type="hidden" value="{{ $producto->ruta_imagen }}" id="img" name="img">
                     <input type="hidden" value="{{ $producto->slug }}" id="slug" name="slug">
-                    <input type="hidden" value="1" id="quantity" name="quantity">
                     <button type="submit" class="ml-auto my-6 p-4 w-100 lg:w-50 buttonGeneral">Añadir al
                         carrito</button>
                 </form>

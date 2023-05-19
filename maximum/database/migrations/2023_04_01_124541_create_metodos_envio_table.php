@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('metodos_envio', function (Blueprint $table) {
+        Schema::create('metodo_envio', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
+            $table->float('cargo');
             $table->softDeletes();
             $table->timestamps();
         });

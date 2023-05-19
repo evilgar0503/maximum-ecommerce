@@ -9,4 +9,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class MetodoPago extends Model
 {
     use HasFactory, SoftDeletes;
+    protected $table = 'metodo_pago';
+
+    protected $fillable = [
+        'nombre'
+    ];
 }

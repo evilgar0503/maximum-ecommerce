@@ -27,7 +27,7 @@
                             <!-- Replace the file input styles with our own via the label -->
                             <input type="file" name="imagen" id="imagen" class="custom">
                             <label for="imagen"
-                                class="py-2 px-3 border border-gray-300 rounded-md text-sm leading-4 font-medium text-gray-700 hover:text-indigo-500 hover:border-indigo-300 focus:outline-none focus:border-indigo-300 focus:shadow-outline-indigo active:bg-gray-50 active:text-indigo-800 transition duration-150 ease-in-out">
+                                class="mb-0 py-3 px-4 border border-gray-300 rounded-md text-sm leading-4 font-medium text-gray-700 hover:text-indigo-500 hover:border-indigo-300 focus:outline-none focus:border-indigo-300 focus:shadow-outline-indigo active:bg-gray-50 active:text-indigo-800 transition duration-150 ease-in-out">
                                 Cargar foto
                             </label>
                         </div>

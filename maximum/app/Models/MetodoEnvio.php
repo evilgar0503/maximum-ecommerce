@@ -9,4 +9,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class MetodoEnvio extends Model
 {
     use HasFactory, SoftDeletes;
+
+    protected $table = 'metodo_envio';
+
+    protected $fillable = [
+        'nombre',
+        'cargo'
+    ];
 }

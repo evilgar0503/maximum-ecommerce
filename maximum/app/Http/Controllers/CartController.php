@@ -3,20 +3,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Producto;
+use App\Models\MetodoEnvio;
 
 class CartController extends Controller
 {
+
+    public function checkout(Request $request) {
+        return view('shop.checkout');
+
+    }
     public function shop()
     {
         $products = Producto::all();
-       dd($products);
         return view('shop')->with(['products' => $products]);
     }
 
     public function cart()  {
         $cartCollection = \Cart::getContent();
+        $shippingMethod = MetodoEnvio::all();
         //dd($cartCollection);
-        return view('shop.cart')->withTitle('E-COMMERCE STORE | CART')->with(['cartCollection' => $cartCollection]);;
+        return view('shop.cart')->withTitle('E-COMMERCE STORE | CART')->with(['cartCollection' => $cartCollection, 'shippingMethod' => $shippingMethod] );;
     }
     public function remove(Request $request){
         \Cart::remove($request->id);

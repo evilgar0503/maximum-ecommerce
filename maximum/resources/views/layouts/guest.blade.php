@@ -18,7 +18,7 @@
         <script src="https://cdn.tailwindcss.com"></script>
         <script src="js/custom/navbar.js"></script>
     </head>
-    <body class="font-sans  antialiased overflow-x-hidden">
+    <body class="font-sans antialiased overflow-x-hidden">
         @include('layouts.navigation')
 
         <div class="min-h-screen flex flex-col sm:justify-center items-center bg-gray-100">

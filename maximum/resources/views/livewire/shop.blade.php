@@ -16,9 +16,8 @@
         @foreach ($productos as $producto)
             <div class="bg-white shadow-md rounded-lg max-w-sm ">
                 <a href="{{ route('product.view', $producto->id) }}">
-
                     <img class="rounded-t-lg p-8" src="{{ '/' . $producto->ruta_imagen }}" alt="product image">
-                    <div class="px-3 pb-5 lg:px-5">
+                    <div class="px-3 pb-2 lg:px-5">
                         <h3 class="text-gray-900 font-semibold text-xl tracking-tight ">
                             {{ $producto->nombre }}</h3>
                         <div class="flex items-center my-3">
