@@ -8,8 +8,16 @@ use App\Models\MetodoEnvio;
 class CartController extends Controller
 {
 
-    public function checkout(Request $request) {
-        return view('shop.checkout');
+    public function checkout($volver) {
+        // $datos = $request->query();
+
+        // dd($_GET['nombreEnv']);
+        if($volver === 1) {
+            return back()->withInput();
+        }
+        else {
+            return view('shop.checkout');
+        }
 
     }
     public function shop()

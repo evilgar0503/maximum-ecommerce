@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
                 'apellidos' => 'Villar García',
                 'dni' => '12345678Z',
                 'email' => 'admin@example.com',
-                'password' => '12345678',
+                'password' => 'REDACTED',
                 'fecha_nacimiento' => '2000-01-01',
                 'telefono' => '600000000',
                 'cp' => '14001',

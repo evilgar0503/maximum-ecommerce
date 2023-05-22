@@ -1,7 +1,14 @@
 <div class="flex flex-col lg:flex-row gap-8 mt-8">
     <div class=" w-full p-3 lg:w-3/5">
+        @if (isset($errors) && $errors->any())
+            <div class="w-full text-red-600 p-3 rounded">
+                Por favor compruebe los campos introducidos.
+            </div>
+        @endif
+            {{-- {{$datos}}; --}}
         <form method="POST" action="{{ route('checkout.review') }}">
             @csrf
+            @method('post')
             <div class="w-full font-bold p-1 border-b border-amber-500">
                 Información de envio
             </div>
@@ -10,14 +17,14 @@
                     <div class="w-1/2">
                         <label class="font-semibold text-xs mb-2">Nombre</label>
                         <input class="w-full text-xs shadow-xl border border-amber-400 p-2" type="text"
-                            name="nombreEnv" value="{{ auth()->user()->nombre }}">
+                            name="nombreEnv" value="{{ old('nombreEnv', auth()->user()->nombre) }}">
                         <x-input-error :messages="$errors->get('nombreEnv')" class="mt-2" />
 
                     </div>
                     <div class="w-1/2">
                         <label class="font-semibold text-xs mb-2">Apellidos</label>
                         <input class="w-full text-xs shadow-xl border border-amber-400 p-2" type="text"
-                            name="apellidosEnv" value="{{ auth()->user()->apellidos }}">
+                            name="apellidosEnv" value="{{ old('apellidosEnv', auth()->user()->apellidos) }}">
                         <x-input-error :messages="$errors->get('apellidosEnv')" class="mt-2" />
 
                     </div>
@@ -25,7 +32,7 @@
                 <div>
                     <label class="font-semibold text-xs mb-2">Dni</label>
                     <input class="w-full text-xs shadow-xl border border-amber-400 p-2" type="text" name="dniEnv"
-                        value="{{ auth()->user()->dni }}">
+                        value="{{ old('dniEnv', auth()->user()->dni) }}">
                     <x-input-error :messages="$errors->get('dniEnv')" class="mt-2" />
 
                 </div>
@@ -33,7 +40,7 @@
                 <div>
                     <label class="font-semibold text-xs mb-2">Dirección</label>
                     <input class="w-full text-xs shadow-xl border border-amber-400 p-2" type="text"
-                        name="direccionEnv" value="{{ auth()->user()->direccion }}">
+                        name="direccionEnv" value="{{ old('direccionEnv', auth()->user()->direccion) }}">
                     <x-input-error :messages="$errors->get('direccionEnv')" class="mt-2" />
 
                 </div>
@@ -41,14 +48,14 @@
                     <div class="w-1/2">
                         <label class="font-semibold text-xs mb-2">Código Postal</label>
                         <input class="w-full text-xs shadow-xl border border-amber-400 p-2" type="text"
-                            name="cpEnv" value="{{ auth()->user()->cp }}">
+                            name="cpEnv" value="{{ old('cpEnv', auth()->user()->cp) }}">
                         <x-input-error :messages="$errors->get('cpEnv')" class="mt-2" />
 
                     </div>
                     <div class="w-1/2">
                         <label class="font-semibold text-xs mb-2">Ciudad</label>
                         <input class="w-full text-xs shadow-xl border border-amber-400 p-2" type="text"
-                            name="ciudadEnv" value="{{ auth()->user()->ciudad }}">
+                            name="ciudadEnv" value="{{ old('ciudadEnv', auth()->user()->ciudad) }}">
                         <x-input-error :messages="$errors->get('ciudadEnv')" class="mt-2" />
 
                     </div>
@@ -57,14 +64,14 @@
                     <div class="w-1/2">
                         <label class="font-semibold text-xs mb-2">Provincia</label>
                         <input class="w-full text-xs shadow-xl border border-amber-400 p-2" type="text"
-                            name="provinciaEnv" value="{{ auth()->user()->provincia }}">
+                            name="provinciaEnv" value="{{ old('provinciaEnv', auth()->user()->provincia) }}">
                         <x-input-error :messages="$errors->get('provinciaEnv')" class="mt-2" />
 
                     </div>
                     <div class="w-1/2">
                         <label class="font-semibold text-xs mb-2">País</label>
                         <input class="w-full text-xs shadow-xl border border-amber-400 p-2" type="text"
-                            name="paisEnv" value="{{ auth()->user()->pais }}">
+                            name="paisEnv" value="{{ old('paisEnv', auth()->user()->pais) }}">
                         <x-input-error :messages="$errors->get('paisEnv')" class="mt-2" />
 
                     </div>
@@ -72,7 +79,7 @@
                 <div>
                     <label class="font-semibold text-xs mb-2">Teléfono</label>
                     <input class="w-full text-xs shadow-xl border border-amber-400 p-2" type="text"
-                        name="telefonoEnv" value="{{ auth()->user()->telefono }}">
+                        name="telefonoEnv" value="{{ old('telefonoEnv', auth()->user()->telefono) }}">
                     <x-input-error :messages="$errors->get('telefonoEnv')" class="mt-2" />
 
                 </div>
@@ -100,7 +107,7 @@
                     <div class="flex flex-col gap-4">
                         @foreach ($methodsPayment as $payment)
                             <div class="flex flex-row gap-2 items-center">
-                                <input name="metodopagoEnv" type="radio" value="{{ $payment->nombre }}"
+                                <input name="metodopagoEnv" type="radio" value="{{ $payment->id }}"
                                     class=" text-xs shadow-xl border border-amber-400 p-1"
                                     @if ($payment->id === 1) checked @endif>
                                 <label for="{{ $payment->nombre }}" class="text-xs p-0 m-0">
@@ -111,7 +118,7 @@
                     <div class="flex flex-row gap-4">
                         <input type="checkbox" name="sameData"
                             class="text-xs shadow-xl border border-amber-400 p-1 text-amber-500"
-                            wire:model='facturacionData'>
+                            wire:model='facturacionData' @if (old('sameData', $facturacionData)) checked @endif>
                         <p class="text-xs">Mi dirección de facturación es la misma que mi dirección de envio.</p>
                     </div>
                 </div>
@@ -124,14 +131,14 @@
                             <div class="w-1/2">
                                 <label class="font-semibold text-xs mb-2">Nombre</label>
                                 <input class="w-full text-xs shadow-xl border border-amber-400 p-2" type="text"
-                                    name="nombreFac">
+                                    name="nombreFac" value="{{ old('nombreFac') }}">
                                 <x-input-error :messages="$errors->get('nombreFac')" class="mt-2" />
 
                             </div>
                             <div class="w-1/2">
                                 <label class="font-semibold text-xs mb-2">Apellidos</label>
                                 <input class="w-full text-xs shadow-xl border border-amber-400 p-2" type="text"
-                                    name="apellidosFac">
+                                    name="apellidosFac" value="{{ old('apellidosFac') }}">
                                 <x-input-error :messages="$errors->get('apellidosFac')" class="mt-2" />
 
                             </div>
@@ -139,7 +146,7 @@
                         <div>
                             <label class="font-semibold text-xs mb-2">Dni</label>
                             <input class="w-full text-xs shadow-xl border border-amber-400 p-2" type="text"
-                                name="dniFac">
+                                name="dniFac" value="{{ old('dniFac') }}">
                             <x-input-error :messages="$errors->get('dniFac')" class="mt-2" />
 
                         </div>
@@ -147,7 +154,7 @@
                         <div>
                             <label class="font-semibold text-xs mb-2">Dirección</label>
                             <input class="w-full text-xs shadow-xl border border-amber-400 p-2" type="text"
-                                name="direccionFac">
+                                name="direccionFac" value="{{ old('direccionFac') }}">
                             <x-input-error :messages="$errors->get('direccionFac')" class="mt-2" />
 
                         </div>
@@ -155,14 +162,14 @@
                             <div class="w-1/2">
                                 <label class="font-semibold text-xs mb-2">Código Postal</label>
                                 <input class="w-full text-xs shadow-xl border border-amber-400 p-2" type="text"
-                                    name="cpFac">
+                                    name="cpFac" value="{{ old('cpFac') }}">
                                 <x-input-error :messages="$errors->get('cpFac')" class="mt-2" />
 
                             </div>
                             <div class="w-1/2">
                                 <label class="font-semibold text-xs mb-2">Ciudad</label>
                                 <input class="w-full text-xs shadow-xl border border-amber-400 p-2" type="text"
-                                    name="ciudadFac">
+                                    name="ciudadFac" value="{{ old('ciudadFac') }}">
                                 <x-input-error :messages="$errors->get('ciudadFac')" class="mt-2" />
 
                             </div>
@@ -171,14 +178,14 @@
                             <div class="w-1/2">
                                 <label class="font-semibold text-xs mb-2">Provincia</label>
                                 <input class="w-full text-xs shadow-xl border border-amber-400 p-2" type="text"
-                                    name="provinciaFac">
+                                    name="provinciaFac" value="{{ old('provinciaFac') }}">
                                 <x-input-error :messages="$errors->get('provinciaFac')" class="mt-2" />
 
                             </div>
                             <div class="w-1/2">
                                 <label class="font-semibold text-xs mb-2">País</label>
                                 <input class="w-full text-xs shadow-xl border border-amber-400 p-2" type="text"
-                                    name="paisFac">
+                                    name="paisFac" value="{{ old('paisFac') }}">
                                 <x-input-error :messages="$errors->get('paisFac')" class="mt-2" />
 
                             </div>
@@ -186,7 +193,7 @@
                         <div>
                             <label class="font-semibold text-xs mb-2">Teléfono</label>
                             <input class="w-full text-xs shadow-xl border border-amber-400 p-2" type="text"
-                                name="telefonoFac">
+                                name="telefonoFac" value="{{ old('telefonofac') }}">
                             <x-input-error :messages="$errors->get('telefonoFac')" class="mt-2" />
 
                         </div>

@@ -12,7 +12,6 @@ class Checkout extends Component
     public $facturacionData = true;
     public function render()
     {
-
         $cartCollection = \Cart::getContent();
         $methodShipping = MetodoEnvio::all();
         $methodsPayment = MetodoPago::all();

@@ -36,7 +36,7 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ], [
             'email.email' => 'El email introducido no tiene el formato adecuado.',
-            'email.unique' => 'El email introducio ya está en uso.'
+            'email.unique' => 'El email introducido ya está en uso.'
         ]);
 
         $user = User::create([

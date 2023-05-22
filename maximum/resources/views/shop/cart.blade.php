@@ -77,7 +77,7 @@
                         <span>Precio total</span>
                         <span>{{ \Cart::getTotal() }}€</span>
                     </div>
-                    <a href="{{route('checkout')}}">
+                    <a href="{{route('checkout', ['volver' => 0])}}">
                     <button class=" font-semibold py-3 text-sm uppercase w-full buttonGeneral">Realizar pedido</button>
                     </a>
 

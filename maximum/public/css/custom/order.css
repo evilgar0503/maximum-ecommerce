@@ -1,0 +1,23 @@
+.d1 {
+    display: inline-block;
+    background: gray;
+    padding: 5px;
+}
+
+.svgChecked {
+    margin-top: 50px;
+    border: 1px solid transparent;
+}
+
+#path2 path {
+    fill: none;
+    stroke-width: 3px;
+    stroke: #212121;
+}
+
+.a1,
+.a3,
+.check {
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+}
