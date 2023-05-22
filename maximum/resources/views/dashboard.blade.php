@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+
     <div class="p-4">
         <div class="lg:w-full">
             <h1 class="text-xl font-semibold">Mis Datos</h1>
@@ -13,13 +14,12 @@
                             <h1 class="text-sm font-light text-gray-500">{{ auth()->user()->rol }}</h1>
                         </div>
                     </div>
-
                     <div class="w-full lg:w-1/3 ml-auto lg:justify-end">
                         <div class="bg-white rounded-2xl py-8 lg:py-16 px-8 text-center">
-                            <span class="font-bold text-4xl">0</span>
+                            <span class="font-bold text-4xl">{{ auth()->user()->pedidos()->count()}}</span>
                             <br>
                             <span class="font-light text-lg">pedidos realizados</span>
-                            <button class="block mx-auto mt-4 px-2 py-1 text-sm rounded border-b-slate-400 border-2 hover:-translate-y-1 ease-out duration-300"> Ver pedidos</button>
+                            <a href="{{route('myOrders')}}"><button class="block mx-auto mt-4 px-2 py-1 text-sm rounded border-b-slate-400 border-2 hover:-translate-y-1 ease-out duration-300"> Ver pedidos</button></a>
                         </div>
                     </div>
                 </div>

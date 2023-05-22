@@ -13,6 +13,10 @@ class RedirectionController extends Controller
         return view('blog.blog');
     }
 
+    public function dashboard()
+    {
+        return view('dashboard');
+    }
     public function blogCreate()
     {
         return view('blog.create');
@@ -43,6 +47,10 @@ class RedirectionController extends Controller
             return view('shop.order-complete', ['order' => $order]);
 
         }
+    }
+
+    public function myOrders() {
+        return view('profile.orders');
     }
 
 }

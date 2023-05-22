@@ -42,9 +42,7 @@ Route::get('/noticia/{id}', [NoticiaController::class, 'show'])->name('noticia.s
 
 Route::post('/formulario', [AvisosController::class, 'store'])->name('avisos.store');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [RedirectionController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'updateprofile'])->name('profile.update');
@@ -64,6 +62,8 @@ Route::post('/checkout/review', [PedidoController::class, 'review'])->name('chec
 Route::post('/order', [PedidoController::class, 'store'])->name('order.complete');
 
 Route::get('/order/{numero_seguimiento}', [RedirectionController::class, 'orderComplete'])->name('order');
+Route::get('/config/orders}', [RedirectionController::class, 'myOrders'])->name('myOrders');
+
 
 
 

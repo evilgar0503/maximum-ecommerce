@@ -152,6 +152,9 @@
                 </div>
 
                 <div class="mt-3 space-y-1">
+                    <x-responsive-nav-link :href="route('myOrders')">
+                        {{ __('Mis pedidos') }}
+                    </x-responsive-nav-link>
                     <x-responsive-nav-link :href="route('dashboard')">
                         {{ __('Configuración') }}
                     </x-responsive-nav-link>
