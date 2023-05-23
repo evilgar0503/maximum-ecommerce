@@ -16,4 +16,8 @@ class MetodoEnvio extends Model
         'nombre',
         'cargo'
     ];
+    public function pedidos()
+    {
+        return $this->hasMany('App\Models\Pedido');
+    }
 }

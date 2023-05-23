@@ -110,7 +110,7 @@
                         <div class="mb-2">
                             <label class="font-semibold text-xs mb-2">Teléfono</label>
                             <p class="text-xs">{{ $datos->telefonoEnv }}</p>
-                            <input type="hidden" name="apellidosEnv" value="{{ $datos->telefonoEnv }}">
+                            <input type="hidden" name="telefonoEnv" value="{{ $datos->telefonoEnv }}">
                         </div>
                         <hr>
                         <div class="mt-2">

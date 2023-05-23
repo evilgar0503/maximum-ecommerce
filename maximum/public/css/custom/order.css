@@ -21,3 +21,17 @@
     stroke-dasharray: 200;
     stroke-dashoffset: 200;
 }
+
+.my-order-alertbutton-class {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 5px;
+    color: #d38a2e;
+    border: 0px;
+  }
+
+  .my-order-alertbutton-class:focus {
+    outline: none;
+    box-shadow: none;
+  }

@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    
 
     <!-- Scripts -->
     <!-- Swiper -->
@@ -75,6 +76,7 @@
 
     <script src="/js/custom/product.js"></script>
     <script src="/js/custom/carrousel.js"></script>
+    <script src="js/custom/alerts.js"></script>
     <script src="/js/custom/cart.js"></script>
     @livewireScripts
 </body>

@@ -150,6 +150,17 @@ class PedidoController extends Controller
             $order->fac_provincia = $request->provinciaFac;
             $order->fac_pais = $request->paisFac;
         }
+        else {
+            $order->fac_nombre = $request->nombreEnv;
+            $order->fac_apellidos = $request->apellidosEnv;
+            $order->fac_dni = $request->dniEnv;
+            $order->fac_direccion = $request->direccionEnv;
+            $order->fac_cp = $request->cpEnv;
+            $order->fac_ciudad = $request->ciudadEnv;
+            $order->fac_provincia = $request->provinciaEnv;
+            $order->fac_pais = $request->paisEnv;
+        }
+
         $order->save();
         $products = \Cart::getContent();
         foreach($products as $product) {

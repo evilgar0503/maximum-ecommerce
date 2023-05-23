@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\RedirectionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\PDFController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -64,7 +65,8 @@ Route::post('/order', [PedidoController::class, 'store'])->name('order.complete'
 Route::get('/order/{numero_seguimiento}', [RedirectionController::class, 'orderComplete'])->name('order');
 Route::get('/config/orders}', [RedirectionController::class, 'myOrders'])->name('myOrders');
 
-
+// Route::get('/generate-pdf-user', [PDFController::class, 'generatePDFUser'])->middleware(['admin', 'auth', 'verified'])->name('pdfUsuarios');
+Route::get('/pdf-compra', [PDFController::class, 'generatePDFCompra'])->middleware(['auth', 'verified'])->name('pdfCompra');
 
 
 require __DIR__ . '/auth.php';

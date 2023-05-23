@@ -14,4 +14,9 @@ class MetodoPago extends Model
     protected $fillable = [
         'nombre'
     ];
+
+    public function pedidos()
+    {
+        return $this->hasMany('App\Models\Pedido');
+    }
 }
