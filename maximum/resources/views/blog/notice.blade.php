@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="bg-white h-fit pt-24 blog">
-        <div class="blogPadre ">
+        <div class="mx-6 lg:mx-56">
             <div class="w-fit lg:block hidden">
                 <a href="{{ route('blog') }}" class="flex m-5 items-center hover:scale-105 transition duration-500">
                     <svg width="16" height="16" viewBox="0 0 513 513" fill="none"
