@@ -152,7 +152,7 @@
 }
 
 .blogPadre {
-    margin: 0px 1rem ;
+    margin: 0px 1rem !important;
 }
 
 @media (min-width: 1024px) {
