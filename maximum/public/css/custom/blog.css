@@ -152,12 +152,13 @@
 }
 
 .blogPadre {
-    margin: 0px 1rem !important;
+    margin: 0px 1rem;
 }
 
 @media (min-width: 1024px) {
     .blogPadre {
-        margin: 0px 14rem !important;
+        padding-left: 14rem !important;
+        padding-right: 14rem !important;
     }
 
     .comment-dog-2 {
