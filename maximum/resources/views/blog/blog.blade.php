@@ -4,7 +4,7 @@
             <h1 class="text-3xl m-5 font-bold">Blog</h1>
             <hr>
         </div>
-        <div class="p-16 md:px-16 xl:px-0 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-14 xl:mx-44">
+        <div class="p-4 md:px-16 xl:px-0 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-14 xl:mx-44">
             @foreach ($noticias as $noticia)
                 <article class="card card--2">
                     <div class="card__info-hover">
@@ -20,8 +20,8 @@
                         <h3 class="card__title">{{ $noticia->titulo }}</h3>
 
                     </div>
-                    <div class="flex justify-between w-full h-auto px-3 mb-3">
-                        <span class="card__by flex ml-5 mt-4">
+                    <div class="flex justify-between w-full items-center h-auto px-3 mb-3">
+                        <span class="card__by flex ">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <rect width="24" height="24" fill="url(#pattern0)" />
@@ -37,7 +37,7 @@
                             <span class="ml-2"> {{ $noticia->comentarios->count() }} comentarios.</span>
                         </span>
                         <a href="{{ route('noticia.show', $noticia->id) }}">
-                            <button class="btn-us w-full float-right px-5"> Ver más</button>
+                            <button class="btn-us w-full  px-3 lg:px-5"> Ver más</button>
                         </a>
                     </div>
                 </article>

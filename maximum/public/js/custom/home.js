@@ -6,7 +6,8 @@ window.addEventListener("DOMContentLoaded", function () {
     var intervalo = 0;
     var cargado = false;
     window.addEventListener("scroll", function () {
-        if (window.scrollY >= 1947 && !cargado) {
+        console.log(window.scrollY);
+        if (window.scrollY >= 2400 && !cargado) {
             setTimeout(moverForm, intervalo * 1000);
             cargado = true;
         }

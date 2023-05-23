@@ -32,7 +32,7 @@
                                                     <li class="flex py-6">
                                                         <a href="#">
                                                             <div class="h-full w-16 lg:h-24 lg:w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                                                                <img src="{{ $item->attributes->image }}"
+                                                                <img src="/{{ $item->attributes->image }}"
                                                                     alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch."
                                                                     class="h-full w-full object-cover object-center">
                                                             </div>

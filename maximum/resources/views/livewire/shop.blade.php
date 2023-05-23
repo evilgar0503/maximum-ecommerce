@@ -18,7 +18,7 @@
                 <a href="{{ route('product.view', $producto->id) }}">
                     <img class="rounded-t-lg p-8" src="{{ '/' . $producto->ruta_imagen }}" alt="product image">
                     <div class="px-3 pb-2 lg:px-5">
-                        <h3 class="text-gray-900 font-semibold text-xl tracking-tight ">
+                        <h3 class="text-gray-900 font-semibold text-md tracking-tight ">
                             {{ $producto->nombre }}</h3>
                         <div class="flex items-center my-3">
                             <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20">
@@ -50,9 +50,28 @@
                                 class="bg-amber-300 text-amber-700 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded ml-3">5.0</span>
                         </div>
                         <div class="flex items-center justify-between">
-                            <span class="text-xl font-bold text-gray-900">{{ $producto->precio }} €</span>
-                            <a href="{{ route('product.view', $producto->id) }}"
-                                class="text-white focus:ring-4 font-medium rounded-lg text-sm px-4 py-2.5 text-center pintada">Comprar</a>
+                            <span class="text-lg font-bold text-gray-900">{{ $producto->precio }} €</span>
+                            <form method="POST" action="{{ route('cart.store', $producto) }}"
+                                class="text-white focus:ring-4 font-medium rounded-lg text-sm px-4 py-2.5 text-center pintada">
+                                @csrf
+                                <input type="hidden" value="1" name="quantity">
+
+                                <input type="hidden" value="{{ $producto->id }}" id="id" name="id">
+                                <input type="hidden" value="{{ $producto->nombre }}" id="name" name="name">
+                                <input type="hidden" value="{{ $producto->precio }}" id="price" name="price">
+                                <input type="hidden" value="{{ $producto->ruta_imagen }}" id="img" name="img">
+                                <input type="hidden" value="{{ $producto->slug }}" id="slug" name="slug">
+                                <button type="submit" class="flex flex-row items-center text-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                        fill="currentColor"
+                                        class="bi bi-cart-fill hover:rotate-45 duration-300 ease-in-out "
+                                        viewBox="0 0 16 16">
+                                        <path
+                                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                    </svg>
+                                    Añadir
+                                </button>
+                            </form>
 
                         </div>
                     </div>

@@ -1,7 +1,7 @@
 <x-app-layout>
-    <div class="bg-white h-fit pt-36 blog">
-        <div class="mx-56">
-            <div class=" w-fit">
+    <div class="bg-white h-fit pt-24 blog">
+        <div class="blogPadre ">
+            <div class="w-fit lg:block hidden">
                 <a href="{{ route('blog') }}" class="flex m-5 items-center hover:scale-105 transition duration-500">
                     <svg width="16" height="16" viewBox="0 0 513 513" fill="none"
                         class="justify-center align-center">
@@ -18,25 +18,26 @@
                     </svg>
                     <span class="ml-2">Volver al blog</span>
                 </a>
-                <img src="/img/perro-comments-2.png" class="comment-dog-2">
-            </div>
-            <hr>
+                <img src="/img/perro-comments-2.png" class="comment-dog-2 ">
 
-            <article class="my-5">
+            </div>
+            <hr class="lg:block hidden">
+
+            <article class="lg:my-5">
                 <h1 class="text-4xl font-bold mb-10">{{ $noticia->titulo }}</h1>
                 <div class="flex justify-center">
-                    <img src="{{ '/storage/' . $noticia->ruta_imagen }}" class="w-3/5">
+                    <img src="{{ '/storage/' . $noticia->ruta_imagen }}" class="w-full lg:w-3/5">
                 </div>
                 <hr class="my-5">
 
-                <div class="noticia">
+                <div class="noticia text-justify">
                     {!! $noticia->cuerpo !!}
                 </div>
             </article>
-            <div class="mt-5 p-20">
+            <div class="mt-5 lg:p-20 p-0 mb-4">
                 <div class="w-full">
-                    <h2 class="text-xl font-bold mb-5">Comentarios</h2>
-                    <img src="/img/perro-comments.png" class="comment-dog">
+                    <h2 class="text-xl font-bold mb-3">Comentarios</h2>
+                    <img src="/img/perro-comments.png" class="comment-dog lg:block hidden">
                 </div>
 
                 <hr>
@@ -50,7 +51,7 @@
                                     src="{{ '/storage/' . Auth::user()->ruta_imagen }}" alt="">
                             </div>
                             <div class="w-full">
-                                <p>{{ Auth::user()->nombre }}{{ Auth::user()->apellidos }}</p>
+                                <p>{{ Auth::user()->nombre }} {{ Auth::user()->apellidos }}</p>
                                 <textarea name="contenido" id="comentario" class="comment-text"></textarea>
                                 <input type="submit" value="Comentar" class="float-right">
                             </div>
