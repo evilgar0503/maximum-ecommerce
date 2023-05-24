@@ -31,12 +31,13 @@
                             </div>
                         </div>
                         <div class="flex justify-center w-1/5">
-                            <form action="{{ route('cart.update') }}" method="POST" id="updateCart{{$item->id}}">
+                            <form action="{{ route('cart.update') }}" method="POST" id="updateCart{{ $item->id }}">
                                 {{ csrf_field() }}
 
                                 <div class="form-group row">
-                                    <input class="mx-2 border text-center w-16 quantity-input" id="{{$item->id}}" min="1" type="number" name="quantity" value="{{ $item->quantity }}">
-                                    <input type="hidden" value="{{ $item->id }}"  id="id" name="id">
+                                    <input class="mx-2 border text-center w-16 quantity-input" id="{{ $item->id }}"
+                                        min="1" type="number" name="quantity" value="{{ $item->quantity }}">
+                                    <input type="hidden" value="{{ $item->id }}" id="id" name="id">
                                 </div>
                             </form>
                         </div>
@@ -45,14 +46,21 @@
                             class="text-center w-1/5 font-semibold text-sm">{{ \Cart::get($item->id)->getPriceSum() }}€</span>
                     </div>
                 @endforeach
-                <a href="{{ route('shop') }}"
-                    class="flex font-semibold text-amber-600 text-sm mt-10 hover:text-amber-700">
-                    <svg class="fill-current mr-2 text-amber-600 w-4" viewBox="0 0 448 512">
-                        <path
-                            d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z" />
-                    </svg>
-                    Continuar comprando
-                </a>
+                <div class="flex flex-row justify-between">
+                    <a href="{{ route('shop') }}"
+                        class="flex font-semibold text-amber-600 text-sm mt-10 hover:text-amber-700">
+                        <svg class="fill-current mr-2 text-amber-600 w-4" viewBox="0 0 448 512">
+                            <path
+                                d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z" />
+                        </svg>
+                        Continuar comprando
+                    </a>
+                    <a href="{{ route('cart.clear') }}"
+                        class="flex font-semibold text-gray-600 text-sm mt-10 hover:text-gray-700"> Limpiar carrito
+                    </a>
+                </div>
+
+
             </div>
 
             <div id="summary" class="w-full lg:w-1/4 px-3 lg:px-8 py-10">
@@ -77,8 +85,9 @@
                         <span>Precio total</span>
                         <span>{{ \Cart::getTotal() }}€</span>
                     </div>
-                    <a href="{{route('checkout', ['volver' => 0])}}">
-                    <button class=" font-semibold py-3 text-sm uppercase w-full buttonGeneral">Realizar pedido</button>
+                    <a href="{{ route('checkout', ['volver' => 0]) }}">
+                        <button class=" font-semibold py-3 text-sm uppercase w-full buttonGeneral">Realizar
+                            pedido</button>
                     </a>
 
                 </div>

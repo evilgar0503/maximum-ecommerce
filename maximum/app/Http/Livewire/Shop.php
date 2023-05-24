@@ -3,22 +3,32 @@
 namespace App\Http\Livewire;
 
 use App\Models\Producto;
+use Illuminate\Support\Facades\Redirect;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class Shop extends Component {
+class Shop extends Component
+{
 
     use WithPagination;
     public $precio = '';
 
     public function render()
     {
-        if($this->precio === '') {
+        if ($this->precio === '') {
             $productos = Producto::paginate(6);
-        }
-        else {
+        } else {
             $productos = Producto::orderBy('precio', $this->precio)->paginate(6);
         }
         return view('livewire.shop', ['productos' => $productos]);
+    }
+
+    public function addToCart($productId)
+    {
+        $product = Producto::findOrFail($productId);
+        if ($product) {
+            \Cart::add(['id' =>$product->id, 'name' => $product->nombre, 'price' => $product->precio, 'quantity' => 1, 'attributes' => ['image' => $product->ruta_imagen, 'slug' => $product->slug]]);
+        }
+        return Redirect::route('cart.index');
     }
 }

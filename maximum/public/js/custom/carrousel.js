@@ -11,25 +11,18 @@ else  if(cards.length >=3) {
     cont = 3;
 
 }
-else  if(cards.length >=4) {
-    cont = 4;
 
-}
-else  if(cards.length >=5) {
-    cont = 5;
-
-}
 // Swiper
 
 var slider = new Swiper(".mySwiper", {
     slidesPerView: 1,
-    spaceBetween: 50,
+    spaceBetween: 10,
     slidesPerGroup: 1,
     loop: false,
     breakpoints: {
     '767': {
     slidesPerView: cont,
-    spaceBetween: 50,},
+    spaceBetween: 10,},
     },
     navigation: {
       nextEl: ".swiper-button-next",

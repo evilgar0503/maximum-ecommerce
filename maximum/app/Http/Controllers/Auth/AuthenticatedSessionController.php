@@ -42,7 +42,7 @@ class AuthenticatedSessionController extends Controller
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
-
+        \Cart::clear();
         return redirect('/');
     }
 }

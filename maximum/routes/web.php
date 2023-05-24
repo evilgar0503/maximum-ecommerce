@@ -57,7 +57,7 @@ Route::get('/cart', [CartController::class, 'cart'])->name('cart.index');
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.store');
 Route::post('/cart/update', [CartController::class, 'update'])->name('cart.update');
 Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
-Route::post('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
+Route::get('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
 Route::get('/checkout/{volver}', [CartController::class, 'checkout'])->middleware('auth')->name('checkout');
 Route::post('/checkout/review', [PedidoController::class, 'review'])->middleware('auth')->name('checkout.review');
 Route::post('/order', [PedidoController::class, 'store'])->middleware('auth')->name('order.complete');

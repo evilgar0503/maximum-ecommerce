@@ -222,8 +222,9 @@
                                 </div>
                                 <hr>
                         @endif
-                        <input type="hidden" name="precioFinal" value="{{ floatval(\Cart::getTotal()) + $metodoEnvio->cargo }}">
-                        <input type="hidden" name="sameData" value="{{$datos->sameData}}">
+                        <input type="hidden" name="precioFinal"
+                            value="{{ floatval(\Cart::getTotal()) + $metodoEnvio->cargo }}">
+                        <input type="hidden" name="sameData" value="{{ $datos->sameData }}">
                         <div class="flex flex-row mt-4">
                             <div class="mx-2 lg:mx-8 flex flex-col gap-4">
                                 <input type="submit" class="buttonGeneral py-3 px-3 mr-auto"
@@ -239,34 +240,34 @@
                 </div>
 
             </div>
-
-
         </div>
-        <div class="w-full lg:w-2/5 p-3 border-t-2 border-amber-500 lg:border-0">
-            <div class="w-full font-bold p-1 border-b border-amber-500 lg:w-4/6">
-                Resumen del pedido
-            </div>
-            <div class="mt-2 w-full lg:w-4/6">
-                @foreach ($cartCollection as $item)
-                    <div class="text-xs flex flex-row  p-1 border-b border-gray-500">
-                        <div class="w-1/6">{{ $item->quantity }} x</div>
-                        <div class="w-4/6"> {{ $item->name }}</div>
-                        <div class="w-1/6 text-end"> {{ \Cart::get($item->id)->getPriceSum() }}€</div>
-                    </div>
-                @endforeach
-                <div class="text-xs text-end  ml-auto mt-2">
 
-                    <p>Subtotal: {{ \Cart::getTotal() }}€</p>
-                    <p>Iva Incluido: {{ number_format(\Cart::getTotal() - \Cart::getTotal() / 1.21, 2) }}€</p>
-                    <p>Gastos de envío: {{ $metodoEnvio->cargo }}€</p>
-                    <p>Total: {{ floatval(\Cart::getTotal()) + $metodoEnvio->cargo }}€</p>
-                    @if (isset($status))
-                        {{ dump($status) }}
-                    @endif
+    </div>
+    <div class="w-full lg:w-2/5 p-3 border-t-2 border-amber-500 lg:border-0">
+        <div class="w-full font-bold p-1 border-b border-amber-500 lg:w-4/6">
+            Resumen del pedido
+        </div>
+        <div class="mt-2 w-full lg:w-4/6">
+            @foreach ($cartCollection as $item)
+                <div class="text-xs flex flex-row  p-1 border-b border-gray-500">
+                    <div class="w-1/6">{{ $item->quantity }} x</div>
+                    <div class="w-4/6"> {{ $item->name }}</div>
+                    <div class="w-1/6 text-end"> {{ \Cart::get($item->id)->getPriceSum() }}€</div>
                 </div>
-            </div>
+            @endforeach
+            <div class="text-xs text-end  ml-auto mt-2">
 
+                <p>Subtotal: {{ \Cart::getTotal() }}€</p>
+                <p>Iva Incluido: {{ number_format(\Cart::getTotal() - \Cart::getTotal() / 1.21, 2) }}€</p>
+                <p>Gastos de envío: {{ $metodoEnvio->cargo }}€</p>
+                <p>Total: {{ floatval(\Cart::getTotal()) + $metodoEnvio->cargo }}€</p>
+                @if (isset($status))
+                    {{ dump($status) }}
+                @endif
+            </div>
         </div>
+
+    </div>
     </div>
 
     </div>

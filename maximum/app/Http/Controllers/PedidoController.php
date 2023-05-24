@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\MetodoPago;
 use App\Models\Pedido;
 use App\Models\MetodoEnvio;
+use App\Models\Producto;
 use App\Models\ProductoPedido;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -170,6 +171,7 @@ class PedidoController extends Controller
             $productoPedido->cantidad = $product->quantity;
             $productoPedido->precio_unidad = $product->price;
             $productoPedido->save();
+            $updated = $this->actualizarStock($productoPedido);
         }
         \Cart::clear();
 
@@ -179,9 +181,12 @@ class PedidoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Pedido $pedido)
+    public function actualizarStock(ProductoPedido $product)
     {
-        //
+        $producto = Producto::findOrFail($product->producto_id);
+        $producto->stock -= $product->cantidad;
+        $producto->save();
+        return true;
     }
 
     /**
