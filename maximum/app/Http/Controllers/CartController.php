@@ -10,9 +10,7 @@ class CartController extends Controller
 
     public function checkout($volver)
     {
-        // $datos = $request->query();
 
-        // dd($_GET['nombreEnv']);
         if ($volver === 1) {
             return back()->withInput();
         } else {
@@ -28,7 +26,10 @@ class CartController extends Controller
 
     public function cart()
     {
-        $cartCollection = \Cart::getContent();
+        $collection = \Cart::getContent();
+        $cartCollection = $collection->sortBy(function($item) {
+            return $item->name;
+        });
         $shippingMethod = MetodoEnvio::all();
         //dd($cartCollection);
         return view('shop.cart')->withTitle('E-COMMERCE STORE | CART')->with(['cartCollection' => $cartCollection, 'shippingMethod' => $shippingMethod]);
@@ -54,7 +55,7 @@ class CartController extends Controller
                 )
             )
         );
-        return view('shop.cart-drop')->with('success_msg', 'Producto(s) agregado al carrito correctamente!');
+        return redirect()->route('cart.index')->with('success_msg', 'Producto añadido correctamente.');
     }
 
     public function update(Request $request)

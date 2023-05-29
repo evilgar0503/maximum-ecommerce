@@ -119,15 +119,19 @@
                 $media = $producto->valoracionesUsuarios()->avg('valoracion');
                 $totalValoraciones = $producto->valoracionesUsuarios()->count();
                 $valoraciones = $producto->valoracionesUsuarios()->get();
-                $frecuenciaValoraciones = ['1' => 0, '2' => 0, '3' => 0, '4' => 0, '5' => 0]; // Inicializamos el array con los posibles valores de las valoraciones
-                foreach ($valoraciones as $valoracion) {
-                    $frecuenciaValoraciones[$valoracion->pivot->valoracion]++;
-                }
-                $porcentajesValoraciones = [];
+                $porcentajesValoraciones = ['1' => 0, '2' => 0, '3' => 0, '4' => 0, '5' => 0];
 
-                foreach ($frecuenciaValoraciones as $valoracion => $frecuencia) {
-                    $porcentajesValoraciones[$valoracion] = ($frecuencia / $totalValoraciones) * 100;
+                if (count($valoraciones) != 0) {
+                    $frecuenciaValoraciones = ['1' => 0, '2' => 0, '3' => 0, '4' => 0, '5' => 0]; // Inicializamos el array con los posibles valores de las valoraciones
+                    foreach ($valoraciones as $valoracion) {
+                        $frecuenciaValoraciones[$valoracion->pivot->valoracion]++;
+                    }
+
+                    foreach ($frecuenciaValoraciones as $valoracion => $frecuencia) {
+                        $porcentajesValoraciones[$valoracion] = ($frecuencia / $totalValoraciones) * 100;
+                    }
                 }
+
             @endphp
             <div class="flex flex-col lg:flex-row gap-8">
                 <div class="flex flex-col w-full lg:w-1/3">
@@ -181,37 +185,47 @@
                     <div class="flex items-center mt-4">
                         <span class="text-sm font-medium text-blue-600 dark:text-blue-500">5 estrellas</span>
                         <div class="w-2/4 h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700">
-                            <div class="h-5 bg-yellow-400 rounded" style="width: {{$porcentajesValoraciones[5]}}%"></div>
+                            <div class="h-5 bg-yellow-400 rounded" style="width: {{ $porcentajesValoraciones[5] }}%">
+                            </div>
                         </div>
-                        <span class="text-sm font-medium text-blue-600 dark:text-blue-500">{{number_format($porcentajesValoraciones[5], 2)}}%</span>
+                        <span
+                            class="text-sm font-medium text-blue-600 dark:text-blue-500">{{ number_format($porcentajesValoraciones[5], 2) }}%</span>
                     </div>
                     <div class="flex items-center mt-4">
                         <span class="text-sm font-medium text-blue-600 dark:text-blue-500">4 estrellas</span>
                         <div class="w-2/4 h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700">
-                            <div class="h-5 bg-yellow-400 rounded" style="width: {{$porcentajesValoraciones[4]}}%"></div>
+                            <div class="h-5 bg-yellow-400 rounded" style="width: {{ $porcentajesValoraciones[4] }}%">
+                            </div>
                         </div>
-                        <span class="text-sm font-medium text-blue-600 dark:text-blue-500">{{number_format($porcentajesValoraciones[4],2)}}%</span>
+                        <span
+                            class="text-sm font-medium text-blue-600 dark:text-blue-500">{{ number_format($porcentajesValoraciones[4], 2) }}%</span>
                     </div>
                     <div class="flex items-center mt-4">
                         <span class="text-sm font-medium text-blue-600 dark:text-blue-500">3 estrellas</span>
                         <div class="w-2/4 h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700">
-                            <div class="h-5 bg-yellow-400 rounded" style="width: {{$porcentajesValoraciones[3]}}%"></div>
+                            <div class="h-5 bg-yellow-400 rounded" style="width: {{ $porcentajesValoraciones[3] }}%">
+                            </div>
                         </div>
-                        <span class="text-sm font-medium text-blue-600 dark:text-blue-500">{{number_format($porcentajesValoraciones[3], 2)}}%</span>
+                        <span
+                            class="text-sm font-medium text-blue-600 dark:text-blue-500">{{ number_format($porcentajesValoraciones[3], 2) }}%</span>
                     </div>
                     <div class="flex items-center mt-4">
                         <span class="text-sm font-medium text-blue-600 dark:text-blue-500">2 estrellas</span>
                         <div class="w-2/4 h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700">
-                            <div class="h-5 bg-yellow-400 rounded" style="width: {{$porcentajesValoraciones[2]}}%"></div>
+                            <div class="h-5 bg-yellow-400 rounded" style="width: {{ $porcentajesValoraciones[2] }}%">
+                            </div>
                         </div>
-                        <span class="text-sm font-medium text-blue-600 dark:text-blue-500">{{number_format($porcentajesValoraciones[2], 2)}}%</span>
+                        <span
+                            class="text-sm font-medium text-blue-600 dark:text-blue-500">{{ number_format($porcentajesValoraciones[2], 2) }}%</span>
                     </div>
                     <div class="flex items-center my-4">
                         <span class="text-sm font-medium text-blue-600 dark:text-blue-500">1 estrellas</span>
                         <div class="w-2/4 h-5 mx-4 bg-gray-200 rounded dark:bg-gray-700">
-                            <div class="h-5 bg-yellow-400 rounded" style="width: {{$porcentajesValoraciones[1]}}%"></div>
+                            <div class="h-5 bg-yellow-400 rounded" style="width: {{ $porcentajesValoraciones[1] }}%">
+                            </div>
                         </div>
-                        <span class="text-sm font-medium text-blue-600 dark:text-blue-500">{{number_format($porcentajesValoraciones[1], 2)}}%</span>
+                        <span
+                            class="text-sm font-medium text-blue-600 dark:text-blue-500">{{ number_format($porcentajesValoraciones[1], 2) }}%</span>
                     </div>
                     <hr>
                     <div class="my-4">

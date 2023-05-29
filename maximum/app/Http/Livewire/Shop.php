@@ -27,8 +27,15 @@ class Shop extends Component
     {
         $product = Producto::findOrFail($productId);
         if ($product) {
-            \Cart::add(['id' =>$product->id, 'name' => $product->nombre, 'price' => $product->precio, 'quantity' => 1, 'attributes' => ['image' => $product->ruta_imagen, 'slug' => $product->slug]]);
+            \Cart::add(['id' => $product->id, 'name' => $product->nombre, 'price' => $product->precio, 'quantity' => 1, 'attributes' => ['image' => $product->ruta_imagen, 'slug' => $product->slug]]);
+
         }
-        return view('shop.cart-drop');
+        $this->redirect($this->getCurrentUrl());
+
+    }
+
+    public function getCurrentUrl()
+    {
+        return "/products";
     }
 }
