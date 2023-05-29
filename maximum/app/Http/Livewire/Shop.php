@@ -29,6 +29,6 @@ class Shop extends Component
         if ($product) {
             \Cart::add(['id' =>$product->id, 'name' => $product->nombre, 'price' => $product->precio, 'quantity' => 1, 'attributes' => ['image' => $product->ruta_imagen, 'slug' => $product->slug]]);
         }
-        return Redirect::route('cart.index');
+        return view('shop.cart-drop');
     }
 }

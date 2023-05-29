@@ -18,7 +18,7 @@ class Producto extends Model
         'stock',
         'ruta_imagen'
     ];
-    
+
     public function producto_base() {
         return $this->belongsTo('App\ProductoBase');
     }
@@ -28,6 +28,6 @@ class Producto extends Model
     }
 
     public function valoracionesUsuarios() {
-        return $this->belongsToMany(User::class, 'valoraciones');
+        return $this->belongsToMany(User::class, 'valoraciones')->withPivot('titulo', 'valoracion', 'comentario');
     }
 }

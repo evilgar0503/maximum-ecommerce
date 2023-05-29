@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('producto_id');
-            $table->integer('puntuacion');
-            $table->longText('valoracion');
+            $table->string('titulo');
+            $table->integer('valoracion');
+            $table->longText('comentario');
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('producto_id')->references('id')->on('productos');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Producto;
 use App\Models\Valoracion;
 use Illuminate\Http\Request;
 
@@ -10,9 +11,10 @@ class ValoracionController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $product = Producto::findOrFail($id);
+        return view('ratings.rating')->with(['producto' => $product]);
     }
 
     /**
@@ -24,11 +26,24 @@ class ValoracionController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Creación de una nueva valoracion.
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'titulo' => ['required', 'string', 'max:255'],
+            'valoracion' => ['required'],
+            'comentario' => ['required']
+        ]);
+
+        $rate = new Valoracion();
+        $rate->user_id = auth()->user()->id;
+        $rate->producto_id = $request->producto_id;
+        $rate->titulo = $request->titulo;
+        $rate->valoracion = $request->valoracion;
+        $rate->comentario = $request->comentario;
+        $rate->save();
+        return redirect()->route('product.view', $request->producto_id);
     }
 
     /**

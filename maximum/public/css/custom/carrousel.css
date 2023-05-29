@@ -35,6 +35,10 @@
 
 }
 
+.pintadaEstrella {
+    color: #ffc107 !important;
+}
+
 .review {
     margin-bottom: 5%;
 }

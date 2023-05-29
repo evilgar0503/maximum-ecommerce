@@ -53,7 +53,7 @@ class User extends Authenticatable
     ];
 
     public function productosValorados() {
-        return $this->belongsToMany(Producto::class, 'valoraciones');
+        return $this->belongsToMany(Producto::class, 'valoraciones')->withPivot('titulo', 'valoracion', 'coemntario');
     }
 
     public function comentarios()
