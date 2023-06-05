@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AvisosController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ComentarioController;
 use App\Http\Controllers\NoticiaController;
 use App\Http\Controllers\PedidoController;
@@ -69,7 +70,15 @@ Route::get('/config/orders}', [RedirectionController::class, 'myOrders'])->name(
 Route::get('/product/{id}/rate', [ValoracionController::class, 'index'])->name('product.rate');
 Route::post('/create/rate', [ValoracionController::class, 'store'])->name('rate.create');
 
+Route::controller(AdminController::class)->group( function() {
+    Route::get('/backend/', 'index')->name('admin.index');
+    Route::get('/backend/users', 'users')->name('admin.users');
+    Route::get('/backend/products', 'products')->name('admin.products');
+    Route::get('/backend/metodo-pago', 'metodoPago')->name('admin.pago');
+    Route::get('/backend/metodo-envio', 'metodoEnvio')->name('admin.envio');
 
+
+});
 
 
 

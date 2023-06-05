@@ -187,3 +187,11 @@ input[type="file"].custom {
   }
 
 
+.menuAdmin li:hover a{
+    color: #212121 !important;
+}
+
+.active {
+    background-color: rgb(243 244 246) !important;
+    color: #212121 !important;
+}

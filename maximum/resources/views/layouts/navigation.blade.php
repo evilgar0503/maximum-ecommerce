@@ -27,7 +27,6 @@
                         </x-nav-link>
                     </div>
                 </div>
-
                 <div class="my-auto">
                     <x-sidebar align="right">
                         <x-slot name="trigger">
@@ -41,18 +40,21 @@
                         </x-slot>
                     </x-sidebar>
                 </div>
-                <div class="flex flex-row">
-                    <div class="hidden  space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
-                            {{ __('Iniciar Sesión') }}
-                        </x-nav-link>
+                @auth
+                @else
+                    <div class="flex flex-row">
+                        <div class="hidden  space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
+                                {{ __('Iniciar Sesión') }}
+                            </x-nav-link>
+                        </div>
+                        <div class="hidden  space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <x-nav-link :href="route('register')" :active="request()->routeIs('register')">
+                                {{ __('Registrarse') }}
+                            </x-nav-link>
+                        </div>
                     </div>
-                    <div class="hidden  space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link :href="route('register')" :active="request()->routeIs('register')">
-                            {{ __('Registrarse') }}
-                        </x-nav-link>
-                    </div>
-                </div>
+                @endauth
             </div>
             @auth
                 <!-- Settings Dropdown -->

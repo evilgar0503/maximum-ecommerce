@@ -71,4 +71,30 @@ alertOrders.forEach(function (alertOrder) {
     });
 });
 
-function alertOrder() {}
+// function alertOrder() {}
+
+function desplegarSideBarAdmin() {
+    var sidebar = document.querySelector('#drawer-navigation');
+    if(sidebar.classList.contains('block')) {
+        sidebar.classList.add("hidden");
+        sidebar.classList.remove("block");
+    }
+    else {
+        sidebar.classList.remove("hidden");
+        sidebar.classList.add("block");
+    }
+    console.log(sidebar.classList)
+}
+
+function desplegarMenuUser() {
+    var sidebar = document.querySelector('#user-navigation');
+    if(sidebar.classList.contains('block')) {
+        sidebar.classList.add("hidden");
+        sidebar.classList.remove("block");
+    }
+    else {
+        sidebar.classList.remove("hidden");
+        sidebar.classList.add("block");
+    }
+    console.log(sidebar.classList)
+}

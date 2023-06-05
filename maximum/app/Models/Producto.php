@@ -12,11 +12,18 @@ class Producto extends Model
     protected $fillable = [
         'nombre',
         'descripcion',
+        'instrucciones',
+        'ingredientes',
+        'marca',
+        'sabor',
+        'edad',
+        'peso',
         'precio',
         'precio_descuento',
         'precio_empresa',
         'stock',
-        'ruta_imagen'
+        'ruta_imagen',
+        'estado'
     ];
 
     public function producto_base() {

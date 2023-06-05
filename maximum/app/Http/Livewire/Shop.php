@@ -16,7 +16,7 @@ class Shop extends Component
     public function render()
     {
         if ($this->precio === '') {
-            $productos = Producto::paginate(6);
+            $productos = Producto::where('estado', 'like', 'activo')->paginate(6);
         } else {
             $productos = Producto::orderBy('precio', $this->precio)->paginate(6);
         }
