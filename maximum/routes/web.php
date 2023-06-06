@@ -70,14 +70,13 @@ Route::get('/config/orders}', [RedirectionController::class, 'myOrders'])->name(
 Route::get('/product/{id}/rate', [ValoracionController::class, 'index'])->name('product.rate');
 Route::post('/create/rate', [ValoracionController::class, 'store'])->name('rate.create');
 
-Route::controller(AdminController::class)->group( function() {
+Route::controller(AdminController::class)->middleware('auth')->group( function() {
     Route::get('/backend/', 'index')->name('admin.index');
     Route::get('/backend/users', 'users')->name('admin.users');
     Route::get('/backend/products', 'products')->name('admin.products');
     Route::get('/backend/metodo-pago', 'metodoPago')->name('admin.pago');
     Route::get('/backend/metodo-envio', 'metodoEnvio')->name('admin.envio');
-
-
+    Route::get('/backend/avisos', 'avisos')->name('admin.avisos');
 });
 
 

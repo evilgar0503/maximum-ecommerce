@@ -37,7 +37,6 @@ class AdminController extends Controller
      */
     public function users()
     {
-
         return view('admin.users');
     }
 
@@ -46,68 +45,23 @@ class AdminController extends Controller
      */
     public function products()
     {
-
         return view('admin.products');
     }
 
     public function metodoPago()
     {
-
         return view('admin.pago');
     }
 
     public function metodoEnvio()
     {
-
         return view('admin.envio');
     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function avisos()
     {
-        //
+        return view('admin.avisos');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }

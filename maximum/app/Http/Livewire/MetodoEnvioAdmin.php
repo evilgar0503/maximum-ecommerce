@@ -8,17 +8,21 @@ use Livewire\Component;
 class MetodoEnvioAdmin extends Component
 {
     public $modalCreateMetodo, $modalEditMetodo, $modalDelete;
-    public $nombre;
+    public $nombre, $cargo;
     public $deleteId, $metodoEdit;
 
     public $rules = [
-        'nombre' => 'required|string|max:255'
+        'nombre' => 'required|string|max:255',
+        'cargo' => 'required|numeric',
     ];
 
     public $messages = [
         'nombre.required' => 'El campo Nombre es obligatorio.',
         'nombre.string' => 'El campo Nombre debe ser una cadena de texto.',
-        'nombre.max' => 'El campo Nombre no debe superar :max caracteres.'
+        'nombre.max' => 'El campo Nombre no debe superar :max caracteres.',
+        'cargo.required' => 'El campo Cargo es obligatorio.',
+        'cargo.numeric' => 'El campo Cargo debe ser un número.',
+
     ];
     public function render()
     {
@@ -64,22 +68,24 @@ class MetodoEnvioAdmin extends Component
     {
 
         $this->validate($this->rules, $this->messages);
-        $producto = MetodoEnvio::findOrFail($this->metodoEdit->id);
+        $metodo = MetodoEnvio::findOrFail($this->metodoEdit->id);
 
-        $producto->nombre = $this->nombre;
-        $producto->save();
+        $metodo->nombre = $this->nombre;
+        $metodo->cargo = $this->cargo;
+        $metodo->save();
         $this->cerrarModal('modalEditMetodo');
         $this->limpiarCampos();
         session()->flash('message', 'Método actualizado correctamente.');
 
     }
-    public function creatMetodoEnvio()
+    public function createMetodoEnvio()
     {
         $this->validate($this->rules, $this->messages);
 
         // Luego, creamos el nuevo producto
         $metodo = MetodoEnvio::create([
             'nombre' => $this->nombre,
+            'cargo' => $this->cargo,
         ]);
         $metodo->save();
 
@@ -102,5 +108,6 @@ class MetodoEnvioAdmin extends Component
     {
         $this->limpiarCampos();
         $this->nombre = $metodo->nombre;
+        $this->cargo = $metodo->cargo;
     }
 }
