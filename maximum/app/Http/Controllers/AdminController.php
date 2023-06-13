@@ -63,5 +63,10 @@ class AdminController extends Controller
         return view('admin.avisos');
     }
 
+    public function pedidos()
+    {
+        return view('admin.pedidos');
+    }
+
 
 }

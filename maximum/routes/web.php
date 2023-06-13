@@ -77,6 +77,8 @@ Route::controller(AdminController::class)->middleware('auth')->group( function()
     Route::get('/backend/metodo-pago', 'metodoPago')->name('admin.pago');
     Route::get('/backend/metodo-envio', 'metodoEnvio')->name('admin.envio');
     Route::get('/backend/avisos', 'avisos')->name('admin.avisos');
+    Route::get('/backend/pedidos', 'pedidos')->name('admin.pedidos');
+
 });
 
 

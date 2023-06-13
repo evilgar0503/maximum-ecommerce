@@ -1,4 +1,26 @@
 <div class="mx-4">
+    <div class="flex flex-row gap-4 my-4">
+        <!-- component -->
+        <div class='w-full lg:w-1/3 '>
+            <div
+                class="border border-gray-200 bg-gray-100 relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg  overflow-hidden">
+                <div class="grid place-items-center h-full w-12 text-gray-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </div>
+
+                <input class="peer h-full w-full outline-none text-sm text-gray-700 pr-2 border-0" type="text"
+                    wire:model="buscadorProductos" placeholder="Nombre, marca..." />
+            </div>
+        </div>
+        <a href="#" wire:click='crear()'
+            class="bg-amber-500 text-white hover:no-underline rounded-full px-3 py-1.5 font-bold text-2xl align-middle">
+            +
+        </a>
+    </div>
     <div class="flex flex-row gap-8 my-4">
         <!-- component -->
         <div class='w-full lg:w-1/4'>
@@ -10,8 +32,6 @@
                 <option value="solucionado">Leidos</option>
             </select>
         </div>
-
-
     </div>
     <div class="relative overflow-auto shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left  my-4 rounded">
@@ -24,18 +44,17 @@
                             <label for="checkbox-all-search" class="sr-only">checkbox</label>
                         </div>
                     </th>
-                    <th scope="col" class="px-6 py-3">Nombre</th>
-                    <th scope="col" class="px-6 py-3">Asunto</th>
+                    <th scope="col" class="px-6 py-3">Fecha</th>
+                    <th scope="col" class="px-6 py-3">Cod. Seguimiento</th>
                     <th scope="col" class="px-6 py-3">Email</th>
+                    <th scope="col" class="px-6 py-3">Precio Total</th>
+                    <th scope="col" class="px-6 py-3">Estado</th>
                     <th scope="col" class="px-6 py-3">Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($avisos as $aviso)
-                    <tr
-                        class="border-b  border-neutral-500  @if ($aviso->estado == 'pendiente') hover:bg-neutral-200
-                        @else
-                        bg-neutral-200 @endif">
+                @foreach ($pedidos as $pedido)
+                    <tr class="border-b  border-neutral-500 hover:bg-neutral-200 ">
                         <td class="w-4 p-2">
                             <div class="flex items-center justify-center">
                                 <input id="checkbox-table-search-1" type="checkbox"
@@ -44,16 +63,26 @@
                             </div>
                         </td>
                         <th scope="row" class="px-6 py-2 font-medium whitespace-nowrap">
-                            {{ $aviso->nombre }}
+                            {{ $pedido->created_at->format('d-m-Y') }}
 
                         <td class="px-6 py-2 ">
-                            {{ $aviso->asunto }}
+                            {{ $pedido->cod_seguimiento }}
                         </td>
                         <td class="px-6 py-2">
-                            {{ $aviso->email }}
+                            {{ $pedido->user->email }}
+                        </td>
+                        <td class="px-6 py-2">
+                            {{ $pedido->precio_total }}€
+                        </td>
+                        <td class="px-6 py-2 uppercase">
+                            <span
+                                class="py-1.5 px-2 text-white font-semibold rounded @if ($pedido->estado == 'pendiente') bg-red-500
+                                @else
+                                bg-green-500 @endif">
+                                {{ $pedido->estado }}</span>
                         </td>
                         <td class="flex items-center px-6 py-4 space-x-3">
-                            <a href="#" wire:click="ver({{ $aviso->id }})"
+                            <a href="#" wire:click="ver({{ $pedido->id }})"
                                 class="font-medium  text-blue-600 hover:no-underline">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
@@ -62,7 +91,7 @@
                                         d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
                                 </svg>
                             </a>
-                            <a href="#" wire:click="noVisto({{ $aviso->id }})"
+                            <a href="#" wire:click="noVisto({{ $pedido->id }})"
                                 class="font-medium  text-gray-600 hover:text-gray-900 hover:no-underline">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-eye-slash-fill" viewBox="0 0 16 16">
@@ -72,7 +101,7 @@
                                         d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829l-2.83-2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12-.708.708z" />
                                 </svg>
                             </a>
-                            <a href="#" wire:click="delete({{ $aviso->id }})"
+                            <a href="#" wire:click="delete({{ $pedido->id }})"
                                 class="font-medium  text-red-600 hover:no-underline hover:text-red-700">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
@@ -85,19 +114,17 @@
                     </tr>
                 @endforeach
                 @if ($modalDelete)
-                    @include('livewire.avisos.delete', ['tipo' => 'Aviso', 'id' => $deleteId])
+                    @include('livewire.pedidos.delete', ['tipo' => 'Aviso', 'id' => $deleteId])
                 @endif
 
-                {{-- @if ($modalEdit)
-                    @include('livewire.product.editProduct', ['producto' => $productoEdit])
-                @endif --}}
+                @if ($modalEdit)
+                    @include('livewire.pedidos.editPedido', ['producto' => $productoEdit])
+                @endif
 
-                @if ($modalNoticia)
-                    @include('livewire.avisos.verAviso')
+                @if ($modalCreatePedido)
+                    @include('livewire.pedidos.createPedido')
                 @endif
             </tbody>
         </table>
-
-
     </div>
 </div>
