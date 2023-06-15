@@ -28,14 +28,15 @@
 <body class="font-sans antialiased overflow-x-hidden">
     @include('layouts.navigation')
 
-    <div class="min-h-screen flex flex-col sm:justify-center items-center bg-gray-100">
+    <div class="min-h-screen flex flex-col sm:justify-center items-center bg-gray-100 my-auto">
 
-        <div>
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
+        <div class="my-auto h-2/5 w-full px-3 flex flex-col items-center">
+                <a href="/" >
+                    <x-application-logo class="w-40 mx-auto h-40 fill-current text-gray-500" />
+                </a>
+            {{ $slot }}
         </div>
-        {{ $slot }}
+
 
     </div>
     @include('layouts.footer')

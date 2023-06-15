@@ -23,12 +23,12 @@ class PedidoController extends Controller
             'apellidosEnv' => 'required|string|max:255',
             'dniEnv' => 'required|string|size:9|regex:/^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$/i',
             'direccionEnv' => 'required|string|max:255',
-            'cpEnv' => 'required|string|max:10',
+            'cpEnv' => 'required|numeric|max:5',
             'ciudadEnv' => 'required|string|max:255',
             'provinciaEnv' => 'required|string|max:255',
             'paisEnv' => 'required|string|max:255',
-            'telefonoEnv' => 'required|string|max:20',
-            'notaEnv' => 'nullable|longText',
+            'telefonoEnv' => 'required|string|max:12',
+            'notaEnv' => 'nullable',
         ];
         $messages = [
             'nombreEnv.required' => 'El campo Nombre es obligatorio.',
@@ -41,6 +41,7 @@ class PedidoController extends Controller
             'direccionEnv.required' => 'El campo Dirección es obligatorio.',
             'direccionEnv.max' => 'El campo Dirección no debe superar :max caracteres.',
             'cpEnv.required' => 'El campo Código Postal es obligatorio.',
+            'cpEnv.numeric' => 'El formato del campo Código Postal debe ser numérico.',
             'cpEnv.max' => 'El campo Código Postal no debe superar :max caracteres.',
             'ciudadEnv.required' => 'El campo Ciudad es obligatorio.',
             'ciudadEnv.max' => 'El campo Ciudad no debe superar :max caracteres.',
