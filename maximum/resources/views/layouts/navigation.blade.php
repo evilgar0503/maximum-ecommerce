@@ -27,6 +27,17 @@
                         </x-nav-link>
                     </div>
                 </div>
+                @if (isset(auth()->user()->id))
+                    @if (auth()->user()->rol == 'admin')
+                    <a href="{{route('admin.index')}}">
+                        <button class=" rounded my-3 mr-3 px-3 py-1.5 bg-white text-amber-600 hidden lg:block">
+                            Administración
+                        </button>
+                    </a>
+                    @endif
+                @endif
+
+
                 <div class="my-auto">
                     <x-sidebar align="right">
                         <x-slot name="trigger">
@@ -156,6 +167,9 @@
                 <div class="mt-3 space-y-1">
                     <x-responsive-nav-link :href="route('myOrders')">
                         {{ __('Mis pedidos') }}
+                    </x-responsive-nav-link>
+                    <x-responsive-nav-link :href="route('admin.index')">
+                        {{ __('Administración') }}
                     </x-responsive-nav-link>
                     <x-responsive-nav-link :href="route('dashboard')">
                         {{ __('Configuración') }}
