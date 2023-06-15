@@ -35,14 +35,16 @@ Route::controller(RedirectionController::class)->group(function () {
 
 Route::get('/blog', [NoticiaController::class, 'index'])->name('blog');
 
-Route::post('/noticia/create', [NoticiaController::class, 'create'])->name('noticia.create');
-Route::get('/noticia/edit/{id}', [NoticiaController::class, 'edit'])->name('noticia.edit');
-Route::post('/notice/edit', [NoticiaController::class, 'update'])->name('noticia.update');
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::post('/noticia/create', [NoticiaController::class, 'create'])->name('noticia.create');
+    Route::get('/noticia/edit/{id}', [NoticiaController::class, 'edit'])->name('noticia.edit');
+    Route::post('/notice/edit', [NoticiaController::class, 'update'])->name('noticia.update');
+});
 Route::post('/noticia', [ComentarioController::class, 'store'])->name('comentario.create');
 
 Route::get('/noticia/{id}', [NoticiaController::class, 'show'])->name('noticia.show');
 
-
+//Envio de formulario
 Route::post('/formulario', [AvisosController::class, 'store'])->name('avisos.store');
 
 Route::get('/dashboard', [RedirectionController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
@@ -64,13 +66,13 @@ Route::get('/checkout/{volver}', [CartController::class, 'checkout'])->middlewar
 Route::post('/checkout/review', [PedidoController::class, 'review'])->middleware('auth')->name('checkout.review');
 Route::post('/order', [PedidoController::class, 'store'])->middleware('auth')->name('order.complete');
 
-Route::get('/order/{numero_seguimiento}', [RedirectionController::class, 'orderComplete'])->name('order');
-Route::get('/config/orders}', [RedirectionController::class, 'myOrders'])->name('myOrders');
+Route::get('/order/{numero_seguimiento}', [RedirectionController::class, 'orderComplete'])->middleware('auth')->name('order');
+Route::get('/config/orders}', [RedirectionController::class, 'myOrders'])->middleware('auth')->name('myOrders');
 
 Route::get('/product/{id}/rate', [ValoracionController::class, 'index'])->name('product.rate');
 Route::post('/create/rate', [ValoracionController::class, 'store'])->name('rate.create');
 
-Route::controller(AdminController::class)->middleware('auth')->group( function() {
+Route::controller(AdminController::class)->middleware(['auth', 'admin'])->group( function() {
     Route::get('/backend/', 'index')->name('admin.index');
     Route::get('/backend/users', 'users')->name('admin.users');
     Route::get('/backend/products', 'products')->name('admin.products');
@@ -78,12 +80,10 @@ Route::controller(AdminController::class)->middleware('auth')->group( function()
     Route::get('/backend/metodo-envio', 'metodoEnvio')->name('admin.envio');
     Route::get('/backend/avisos', 'avisos')->name('admin.avisos');
     Route::get('/backend/pedidos', 'pedidos')->name('admin.pedidos');
-
 });
 
 
 
-// Route::get('/generate-pdf-user', [PDFController::class, 'generatePDFUser'])->middleware(['admin', 'auth', 'verified'])->name('pdfUsuarios');
 Route::get('/pdf-compra', [PDFController::class, 'generatePDFCompra'])->middleware(['auth', 'verified'])->name('pdfCompra');
 
 

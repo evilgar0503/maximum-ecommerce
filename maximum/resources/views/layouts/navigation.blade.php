@@ -80,11 +80,13 @@
                             <x-dropdown-link :href="route('dashboard')">
                                 {{ __('Configuración') }}
                             </x-dropdown-link>
+                            <x-dropdown-link :href="route('myOrders')">
+                                {{ __('Mis pedidos') }}
+                            </x-dropdown-link>
 
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-
                                 <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
@@ -95,7 +97,7 @@
                     </x-dropdown>
                 </div>
                 <!-- Hamburger -->
-                <div class="-mr-2 flex items-center sm:hidden">
+                <div class="flex items-center sm:hidden mr-4 ml-3">
                     <button @click="open = ! open"
                         class="inline-flex items-center justify-center p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
                         <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
@@ -136,9 +138,9 @@
             <x-responsive-nav-link :href="route('shop')" :active="request()->routeIs('shop')">
                 {{ __('Tienda') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('contacto')" :active="request()->routeIs('contacto')">
+            {{-- <x-responsive-nav-link :href="route('contacto')" :active="request()->routeIs('contacto')">
                 {{ __('Contactar') }}
-            </x-responsive-nav-link>
+            </x-responsive-nav-link> --}}
             <x-responsive-nav-link :href="route('blog')" :active="request()->routeIs('blog')">
                 {{ __('Blog') }}
             </x-responsive-nav-link>
