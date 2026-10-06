@@ -11,6 +11,7 @@ use App\Models\Noticia;
 use App\Models\User;
 use App\Models\Producto;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,24 +22,17 @@ class DatabaseSeeder extends Seeder
     {
         $users = [
             [
-                'nombre' => 'Eduardo',
-                'apellidos' => 'Villar García',
-                'dni' => '12345678Z',
+                'nombre' => 'Admin',
+                'apellidos' => 'Demo',
                 'email' => 'admin@example.com',
-                'password' => 'REDACTED',
-                'fecha_nacimiento' => '2000-01-01',
-                'telefono' => '600000000',
-                'cp' => '14001',
-                'direccion' => 'Calle Mayor, 1',
-                'ciudad' => 'Cabra',
-                'provincia' => 'Córdoba',
-                'pais' => 'España',
+                'password' => Hash::make(env('SEED_ADMIN_PASSWORD', 'password')),
                 'rol' => 'admin',
                 'ruta_imagen' => 'img/users/defaultProfile.png'
             ]
         ];
         foreach ($users as $userData) {
-            User::create($userData);
+            // forceCreate: 'rol' no es fillable a propósito, para evitar escalada de privilegios por asignación masiva.
+            User::forceCreate($userData);
         }
         $metodosPago = [
             [

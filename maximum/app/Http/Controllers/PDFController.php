@@ -9,27 +9,6 @@ use PDF;
 
 class PDFController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    // public function generatePDFUser()
-    // {
-    //     $users = User::get();
-
-    //     $data = [
-    //         'title' => 'Hotel Príncipe Pío',
-    //         'date' => date('m/d/Y'),
-    //         'users' => $users
-    //     ];
-
-    //     $pdf = PDF::loadView('pdfs.PDFUser', $data);
-
-    //     return $pdf->download('users.pdf');
-    // }
-
-
     public function generatePDFCompra(Request $request)
     {
         $pedido = Pedido::findOrFail($request->id);

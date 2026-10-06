@@ -21,26 +21,22 @@
     </div>
     <div class="h-fit bg-white py-10">
         <div class="flex flex-col lg:flex-row justify-around">
-            <img src="img/element-1.png" class="mr-auto w-4/5 lg:w-2/5 ml-auto ">
+            <img src="img/element-1.png" alt="" class="mr-auto w-4/5 lg:w-2/5 ml-auto ">
             <div class="w-full lg:w-2/4 ml-auto my-auto">
-                <h1 class="uppercase font-bold text-center text-6xl ">lorem</h1>
-                <p class="mx-4 lg:mx-24 mt-10">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur
-                    corrupti
-                    animi iusto voluptatem
-                    voluptas odit doloribus, incidunt nemo. Incidunt eius consequatur aperiam ab, quas voluptate nam
-                    molestias! Harum, soluta eveniet.</p>
+                <h2 class="uppercase font-bold text-center text-6xl ">Nutrición</h2>
+                <p class="mx-4 lg:mx-24 mt-10">Piensos seleccionados para cada etapa de la vida de tu perro, de
+                    cachorro a senior. Consulta la composición de cada producto y las valoraciones de otros
+                    clientes antes de decidir.</p>
             </div>
         </div>
         <div class="flex mt-5 lg:mt-0 flex-col-reverse lg:flex-row justify-around">
             <div class="w-full lg:w-2/4 ml-auto my-auto">
-                <h1 class="uppercase font-bold text-center text-6xl ">lorem</h1>
-                <p class="mx-4 lg:mx-24 mt-10">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur
-                    corrupti
-                    animi iusto voluptatem
-                    voluptas odit doloribus, incidunt nemo. Incidunt eius consequatur aperiam ab, quas voluptate nam
-                    molestias! Harum, soluta eveniet.</p>
+                <h2 class="uppercase font-bold text-center text-6xl ">Compra fácil</h2>
+                <p class="mx-4 lg:mx-24 mt-10">Añade productos al carrito, elige el método de pago y de envío que
+                    prefieras y descarga la factura de tu pedido en PDF. Desde tu cuenta puedes consultar el estado
+                    de todos tus pedidos.</p>
             </div>
-            <img src="img/element-2.png" class="mr-auto  w-4/5 lg:w-2/5 ml-auto">
+            <img src="img/element-2.png" alt="" class="mr-auto  w-4/5 lg:w-2/5 ml-auto">
         </div>
     </div>
     <div class="mt-8 lg:mt-16">
